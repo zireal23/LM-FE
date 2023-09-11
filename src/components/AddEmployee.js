@@ -4,7 +4,7 @@ import axios from "axios";
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const AddEmployee = () => {
-  const baseURL = "http://localhost:9080/saveStudent";
+  const baseURL = "http://localhost:8080/saveEmployee";
   const navigate = useNavigate();
   const [employeeId, setId] = useState('');
   const [employeeName, setEmployeeName] = useState('');
@@ -56,7 +56,8 @@ const AddEmployee = () => {
 
       })
       .then((response) => {
-        alert(response.data.employeeName);
+       // alert(response.data.employeeName);
+       console.log(response.data);
         alert("Employee "+ employeeName +" added!");
         //navigate("/account");
       }).catch(error => {
@@ -100,7 +101,7 @@ const AddEmployee = () => {
         <br></br>
         <button type='submit'>Add Employee</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' onClick={()=>cancelHandler()}>Cancel</button>
+        <button type='reset' onClick={()=>cancelHandler()}>Cancel</button> 
       </form>
 
     
