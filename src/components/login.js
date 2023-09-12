@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import "C:/Users/react/sample/myloanapp/src/styles/login.css"
+import "C:/Users/react/sample/myloanapp/src/login.css"
 
 const LoginPage = () => {
     const baseURL = "http://localhost:8080/login";
