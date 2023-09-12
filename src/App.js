@@ -1,16 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AddEmployee from"./components/AddEmployee";
-
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import AddEmployee from"./components/AddEmployee";
+import UserDashboard from "./components/UserDashboard";
+import Header from "./components/Header";
 function App() {
   return (
-  <BrowserRouter>
-  <Routes>
-    <Route path="/" element={<AddEmployee/>}></Route>
-
-  </Routes>
-  </BrowserRouter>
+    <>
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<UserDashboard />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
