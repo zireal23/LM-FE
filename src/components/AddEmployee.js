@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import './AddEmployee.css'
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const AddEmployee = () => {
-  const baseURL = "http://localhost:8080/saveEmployee";
+  const baseURL = "http://localhost:7000/saveEmployee";
   const navigate = useNavigate();
   const [employeeId, setId] = useState('');
   const [employeeName, setEmployeeName] = useState('');
   const[department,setDepartment]=useState('');
-  const[designation,setDeisgnation]=useState('');
+  const[designation,setDesignation]=useState('');
   const[gender,setGender]=useState('');
-  const[dob,setDob]=useState('');
-  const[doj,setDoj]=useState('');
+  const[dateofbirth,setdateofbirth]=useState('');
+  const[dateofjoining,setDateofjoining]=useState('');
+  const[password,setPassword]=useState('');
 
 
   const employeeIdChangeHandler = (event) => {
@@ -28,16 +30,19 @@ const AddEmployee = () => {
     setDepartment(event.target.value);
   };
   const designationChangeHandler = (event) => {
-    setDeisgnation(event.target.value);
+    setDesignation(event.target.value);
   };
   const genderChangeHandler = (event) => {
     setGender(event.target.value);
   };
-  const dobChangeHandler = (event) => {
-    setDob(event.target.value);
+  const dateofbirthChangeHandler = (event) => {
+    setdateofbirth(event.target.value);
   };
-  const dojChangeHandler = (event) => {
-    setDoj(event.target.value);
+  const dateofjoiningChangeHandler = (event) => {
+    setDateofjoining(event.target.value);
+  };
+  const passwordChangeHandler = (event) => {
+    setPassword(event.target.value);
   };
 
 
@@ -51,9 +56,9 @@ const AddEmployee = () => {
         department:department,
         designation:designation,
         gender: gender,
-        dob:dob,
-        doj:doj
-
+        dateofbirth:dateofbirth,
+        dateofjoining:dateofjoining,
+        password: password
       })
       .then((response) => {
        // alert(response.data.employeeName);
@@ -70,11 +75,12 @@ const AddEmployee = () => {
     //reset the values of input fields
     setId('');
     setEmployeeName('');
-    setDeisgnation('');
+    setDesignation('');
     setDepartment('');
     setGender('');
-    setDob('');
-    setDoj('');
+    setdateofbirth('');
+    setDateofjoining('');
+    setPassword('');
    // navigate("/read");
 
   }
@@ -94,10 +100,12 @@ const AddEmployee = () => {
         <input type="text" value={designation} onChange={designationChangeHandler} placeholder="Enter designation" required/><br></br>
         Gender:
         <input type="text" value={gender} onChange={genderChangeHandler} placeholder="Enter gender" required/><br></br>
-        DOB:
-        <input type="text" value={dob} onChange={dobChangeHandler} placeholder="Enter dob" required/><br></br>
-        DOJ:
-        <input type="text" value={doj} onChange={dojChangeHandler} placeholder="Enter doj" required/><br></br>
+        Date of Birth:
+        <input type="text" value={dateofbirth} onChange={dateofbirthChangeHandler} placeholder="Enter Date of Birth" required/><br></br>
+        Date of Joining:
+        <input type="text" value={dateofjoining} onChange={dateofjoiningChangeHandler} placeholder="Enter Date of Joining" required/><br></br>
+        Enter Password:
+        <input type="password" value={password} onChange={passwordChangeHandler} placeholder="Enter Password" required/><br></br>
         <br></br>
         <button type='submit'>Add Employee</button>
         &nbsp;&nbsp;&nbsp;
