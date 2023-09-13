@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import "C:/Users/react/sample/myloanapp/src/login.css"
+import './login.css'
+
 
 const LoginPage = () => {
-    const baseURL = "http://localhost:8080/login";
+    const baseURL = "http://localhost:7000/login";
     const [employeeId, setEmployeeId] = useState('');
     const [password, setPassword] = useState('');
 
