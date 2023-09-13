@@ -1,16 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import './Loanapply.css'
-
-
+import "./Loanapply.css";
 
 function Loanapply() {
-  const [employeeId, setEmployeeId] = useState('');
-  const [itemCategory, setItemCategory] = useState('');
-  const [itemDescription, setItemDescription] = useState('');
-  const [itemValue, setItemValue] = useState('');
-  const [itemMake, setItemMake] = useState('');
+  const [employeeId, setEmployeeId] = useState("");
+  const [itemCategoryArray, setItemCategoryArray] = useState([]);
+  const [itemMakeArray, setItemMakeArray] = useState([]);
+  const [itemArray, setItemArray] = useState([]);
+  const [itemCategory, setItemCategory] = useState("");
+  const [itemDescription, setItemDescription] = useState("");
+  const [itemValue, setItemValue] = useState("");
+  const [itemMake, setItemMake] = useState("");
+  useEffect(() => {
+    axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
+      setItemCategoryArray(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (itemCategory) {
+      axios
+        .get(`http://localhost:7000/fetchItemMake?category=${itemCategory}`)
+        .then((res) => {
+          setItemMakeArray(res.data);
+        });
+    }
+  }, [itemCategory]);
+
+  useEffect(() => {
+    if (itemCategory && itemMake)
+      axios
+        .get(
+          `http://localhost:7000/fetchItemsFromCategoryAndMake?category=${itemCategory}&make=${itemMake}`
+        )
+        .then((res) => {
+          console.log(res.data);
+          setItemArray(res.data);
+        });
+  }, [itemMake, itemCategory]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +49,19 @@ function Loanapply() {
       itemValue,
       itemMake,
     });
+  };
+
+  const handleItemCategoryChange = (e) => {
+    setItemCategory(e.target.value);
+  };
+
+  const handleItemMakeChange = (e) => {
+    setItemMake(e.target.value);
+  };
+
+  const handleItemDescriptionChange = (e) => {
+    setItemValue(itemArray[e.target.selectedIndex - 1].itemValuation);
+    setItemDescription(e.target.value);
   };
 
   return (
@@ -43,52 +84,72 @@ function Loanapply() {
             <select
               className="form-control"
               id="itemCategory"
-              value={itemCategory}
-              onChange={(e) => setItemCategory(e.target.value)}
+              onChange={handleItemCategoryChange}
             >
-              <option value="Furniture">Furniture</option>
-              <option value="Stationary">Stationary</option>
-              <option value="Crockery">Crockery</option>
+              <option disabled selected>
+                Please Select a Value
+              </option>
+              {itemCategoryArray.map((val, idx) => {
+                return (
+                  <option value={val} key={idx}>
+                    {val}
+                  </option>
+                );
+              })}
+              {/* <option value="Stationary">Stationary</option>
+              <option value="Crockery">Crockery</option> */}
             </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="itemDescription">Item Description : </label>
-            <textarea
-              className="form-control"
-              id="itemDescription"
-              value={itemDescription}
-              onChange={(e) => setItemDescription(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="itemValue">Item Value : </label>
-            <input
-              type="text"
-              className="form-control"
-              id="itemValue"
-              value={itemValue}
-              onChange={(e) => setItemValue(e.target.value)}
-            />
           </div>
           <div className="form-group">
             <label htmlFor="itemMake">Item Make : </label>
             <select
               className="form-control"
               id="itemMake"
-              value={itemMake}
-              onChange={(e) => setItemMake(e.target.value)}
+              onChange={handleItemMakeChange}
             >
-              <option value="Wooden">Wooden</option>
-              <option value="Glass">Glass</option>
-              <option value="Plastic">Plastic</option>
+              <option selected disabled>
+                Please select an option
+              </option>
+              {itemMakeArray.map((val, idx) => {
+                return (
+                  <option value={val} key={idx}>
+                    {val}
+                  </option>
+                );
+              })}
             </select>
           </div>
-          <button type="submit" className="btn btn-submit">Apply Loan</button>
+          <div className="form-group">
+            <label htmlFor="itemDescription">Item Description : </label>
+            <select
+              className="form-control"
+              id="itemDescription"
+              onChange={handleItemDescriptionChange}
+            >
+              <option selected disabled>
+                Please select an option
+              </option>
+              {itemArray.map((val, idx) => {
+                return (
+                  <option value={val} key={idx}>
+                    {val.itemDescription}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="itemValue">Item Value : </label>
+            {itemValue}
+          </div>
+
+          <button type="submit" className="btn btn-submit">
+            Apply Loan
+          </button>
         </form>
       </div>
     </div>
   );
 }
-
 
 export default Loanapply;
