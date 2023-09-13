@@ -6,7 +6,6 @@ import LoginPage from './components/login';
 import ViewLoans from './components/ViewLoan';
 import UserDashboard from './components/UserDashboard';
 import Loanapply from './components/Loanapply';
-import Header from "./components/Header";
 import ViewItem from "./components/ViewItem";
 function App() {
   return (
