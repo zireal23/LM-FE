@@ -6,7 +6,6 @@ import './AddEmployee.css'
 
 const AddEmployee = () => {
   const baseURL = "http://localhost:7000/saveEmployee";
-  const navigate = useNavigate();
   const [employeeId, setId] = useState('');
   const [employeeName, setEmployeeName] = useState('');
   const[department,setDepartment]=useState('');

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Corben&display=swap');
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333333; 
+  color: #ffffff; 
+  padding: 15px 20px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Abril Fatface', cursive;
+  transition: background-color 0.3s ease; 
+}
+
+.app-header:hover {
+  background-color: #444444; 
+}
+
+.app-title {
+  font-size: 36px;
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+  background-image: linear-gradient(to bottom, #000000, #000000); 
+  transition: font-size 0.3s ease; 
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+}
+
+.header-button {
+  background: none;
+  font-family: 'Corben', cursive;
+  border: none;
+  color: #ffffff; 
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  transition: all 0.3s ease; 
+}
+
+.header-button.active {
+  border-bottom: 3px solid #229eae; 
+  transform: scale(1.1); 
+}
