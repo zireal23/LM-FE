@@ -12,7 +12,7 @@ function Loanapply() {
   const [itemDescription, setItemDescription] = useState("");
   const [itemValue, setItemValue] = useState("");
   const [itemMake, setItemMake] = useState("");
-  
+
   useEffect(() => {
     axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
       setItemCategoryArray(res.data);
@@ -50,6 +50,15 @@ function Loanapply() {
       itemValue,
       itemMake,
     });
+    axios.post("http://localhost:7000/saveEmployeeLoan", {
+      employeeID,
+      itemCategory,
+      itemDescription,
+      itemValuation: itemValue,
+      itemMake
+    }).then(res => {
+      alert(res.data);
+    })
   };
 
   const handleItemCategoryChange = (e) => {
