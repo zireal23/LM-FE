@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import './AddEmployee.css'
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const AddEmployee = () => {
+  const navigate = useNavigate();
   const baseURL = "http://localhost:7000/saveEmployee";
   const [employeeId, setId] = useState('');
   const [employeeName, setEmployeeName] = useState('');
@@ -62,7 +64,8 @@ const AddEmployee = () => {
        // alert(response.data.employeeName);
        console.log(response.data);
         alert("Employee "+ employeeName +" added!");
-        //navigate("/account");
+        navigate("/userdashboard");
+        
       }).catch(error => {
         alert("error==="+error);
       });
@@ -99,9 +102,9 @@ const AddEmployee = () => {
         Gender:
         <input type="text" value={gender} onChange={genderChangeHandler} placeholder="Enter gender" required/><br></br>
         Date of Birth:
-        <input type="text" value={dateofbirth} onChange={dateofbirthChangeHandler} placeholder="Enter Date of Birth" required/><br></br>
+        <input type="date" value={dateofbirth} onChange={dateofbirthChangeHandler} placeholder="Enter Date of Birth" required/><br></br>
         Date of Joining:
-        <input type="text" value={dateofjoining} onChange={dateofjoiningChangeHandler} placeholder="Enter Date of Joining" required/><br></br>
+        <input type="date" value={dateofjoining} onChange={dateofjoiningChangeHandler} placeholder="Enter Date of Joining" required/><br></br>
         Enter Password:
         <input type="password" value={password} onChange={passwordChangeHandler} placeholder="Enter Password" required/><br></br>
         <br></br>

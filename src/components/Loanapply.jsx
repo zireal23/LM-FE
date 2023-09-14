@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Loanapply.css";
 
 function Loanapply() {
-  const [employeeId, setEmployeeId] = useState("");
+  const employeeID = sessionStorage.getItem("employeeID");
   const [itemCategoryArray, setItemCategoryArray] = useState([]);
   const [itemMakeArray, setItemMakeArray] = useState([]);
   const [itemArray, setItemArray] = useState([]);
@@ -12,6 +12,7 @@ function Loanapply() {
   const [itemDescription, setItemDescription] = useState("");
   const [itemValue, setItemValue] = useState("");
   const [itemMake, setItemMake] = useState("");
+  
   useEffect(() => {
     axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
       setItemCategoryArray(res.data);
@@ -43,7 +44,7 @@ function Loanapply() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({
-      employeeId,
+      employeeID,
       itemCategory,
       itemDescription,
       itemValue,
@@ -53,10 +54,13 @@ function Loanapply() {
 
   const handleItemCategoryChange = (e) => {
     setItemCategory(e.target.value);
+    document.getElementById("itemMake").selectedIndex = 0;
+    document.getElementById("itemDescription").selectedIndex = 0;
   };
 
   const handleItemMakeChange = (e) => {
     setItemMake(e.target.value);
+    document.getElementById("itemDescription").selectedIndex = 0;
   };
 
   const handleItemDescriptionChange = (e) => {
@@ -71,13 +75,7 @@ function Loanapply() {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="employeeId">Employee ID :</label>
-            <input
-              type="text"
-              className="form-control"
-              id="employeeId"
-              value={employeeId}
-              onChange={(e) => setEmployeeId(e.target.value)}
-            />
+            {employeeID}
           </div>
           <div className="form-group">
             <label htmlFor="itemCategory">Item Category : </label>
