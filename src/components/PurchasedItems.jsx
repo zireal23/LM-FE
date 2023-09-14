@@ -1,58 +1,91 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import './PurchasedItems.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./PurchasedItems.css";
 
-const PurchasedItems = () => {
-  const [items, setItems] = useState([]);
+function PurchasedItems() {
+  const [employeeId, setEmployeeId] = useState('');
+  const [designation, setDesignation] = useState('');
+  const [department, setDepartment] = useState('');
+  const [tableData, setTableData] = useState([]);
 
   // useEffect(() => {
-  //   // Replace 'example-api.com' with the actual API endpoint
-  //   fetch('https://example-api.com/items')
+  //   // Fetch data from your API (example.com) and update tableData state
+  //   // Replace this with your actual API fetch logic
+  //   fetch('https://example.com/api/data')
   //     .then((response) => response.json())
-  //     .then((data) => setItems(data));
+  //     .then((data) => setTableData(data));
   // }, []);
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center mb-4">Item Purchased</h1>
+    <div className="container">
+      <h1>Item Purchased</h1>
       <div className="row">
-        <div className="col-md-4">
-          <h4>Employee ID : </h4>
+        <div className="col">
+          <div className="form-group">
+            <label htmlFor="employeeId">Employee id:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="employeeId"
+              placeholder="Enter Employee ID"
+              value={employeeId}
+              onChange={(e) => setEmployeeId(e.target.value)}
+            />
+          </div>
         </div>
-        <div className="col-md-4">
-          <h4>Designation : </h4>
+        <div className="col">
+          <div className="form-group">
+            <label htmlFor="designation">Designation:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="designation"
+              placeholder="Enter Designation"
+              value={designation}
+              onChange={(e) => setDesignation(e.target.value)}
+            />
+          </div>
         </div>
-        <div className="col-md-4">
-          <h4>Department : </h4>
+        <div className="col">
+          <div className="form-group">
+            <label htmlFor="department">Department:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="department"
+              placeholder="Enter Department"
+              value={department}
+              onChange={(e) => setDepartment(e.target.value)}
+            />
+          </div>
         </div>
       </div>
-      <div className="mt-4">
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>Issue ID</th>
-              <th>Item Description</th>
-              <th>Item Make</th>
-              <th>Item Category</th>
-              <th>Item Valuation</th>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Issue_id</th>
+            <th>Item Description</th>
+            <th>Item Make</th>
+            <th>Item Category</th>
+            <th>Item Valuation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((item) => (
+            <tr key={item.issueId}>
+              <td>{item.issueId}</td>
+              <td>{item.itemDescription}</td>
+              <td>{item.itemMake}</td>
+              <td>{item.itemCategory}</td>
+              <td>{item.itemValuation}</td>
             </tr>
-          </thead>
-          <tbody>
-            {items.map((item) => (
-              <tr key={item.issueId}>
-                <td>{item.issueId}</td>
-                <td>{item.description}</td>
-                <td>{item.make}</td>
-                <td>{item.category}</td>
-                <td>{item.valuation}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-};
+}
 
 export default PurchasedItems;
