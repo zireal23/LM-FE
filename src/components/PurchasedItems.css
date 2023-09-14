@@ -1,29 +1,41 @@
+h1 {
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Add spacing to form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Adjust the width of input fields */
+.form-control {
+  width: 100%;
+}
+
+/* Add some padding to the table */
+.table {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+/* Style the table headers */
+.table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+/* Style the table rows */
+.table td {
+  text-align: center;
+}
+
+/* Style the table's container */
 .container {
-    margin-top: 20px;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  /* Subheadings for Employee ID, Designation, and Department */
-  .col-md-4 h4 {
-    text-align: center;
-  }
-  
-  /* Table styles */
-  .table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-  }
-  
-  .table th, .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .table th {
-    background-color: #f2f2f2;
-  }
+  margin-top: 20px;
+}
+
+/* Add padding to the container for better spacing */
+.container > * {
+  padding: 10px;
+}
