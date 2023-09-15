@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
-//import editIcon from "./../assets/edit.png";
-//import deleteIcon from "./../assets/delete.JPG";
 import "../App.css";
 
-
 const ViewLoans = () => {
-
+  const employeeID = sessionStorage.getItem("employeeID");
   const navigate = useNavigate();
-  const baseURL = "http://localhost:7000/fetchLoans";
-  const [loan, setLoan] = useState([]);
+  const baseURL = `http://localhost:7000/fetchLoans?employeeId=${employeeID}`;
+  const [loanArray, setLoanArray] = useState([]);
 
-  const setLoanData = () => {
-    axios.get(baseURL ).then((response) => {
-      setLoan(response.data);
-    }).catch(error => {
-      alert("Error Ocurred while loading data:" + error);
-    });
-  }
+  // const setLoanData = () => {
+    
+  // }
 
   useEffect(() => {
-    setLoanData();
+    axios.get(baseURL).then((response) => {
+      setLoanArray(response.data);
+      console.log(response.data);
+    }).catch(error => {
+      alert("Error Occurred while loading data: " + error);
+    });
   }, []);
 
   return (
-    <div class="card-body">
-      <br>
-      </br>
+    <div className="card-body">
+      <br></br>
       <nav>
         <button
           className="btn btn-primary nav-item active"
@@ -35,84 +32,47 @@ const ViewLoans = () => {
           Create New Loan
         </button>
       </nav>
-
-
       <br></br>
-      <div className="col-md-6">
-        <h4> Loans</h4>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <table class="table table-bordered table-striped">
+      <div className="col-md-12">
+        <h4>Loans</h4>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <table className="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>loan_id</th>
-                    <th>duration</th>
-                    <th>card_issue_date</th>
-                    <th>loan_type</th>
-                    <th scope="col">Action</th>
-
+                    <th>Loan ID</th>
+                    <th>Duration (in years)</th>
+                    <th>Loan Type</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-
-                  {
-                    
-                    loan.map((loan, index) => (
-
-                      <tr>
-                        <th scope="row">{loan.loanId}</th>
-                        <td>{loan.duration}</td>
-                        <td>{loan.issueDate}</td>
-                        <td>{loan.loanType}</td>
-                                              
-
-
-                        <td >
-                        
-
-     <Link to={"/edit/" + loan.loanId}>Edit
-                        </Link> 
-
-
-                       
-                       
-
+                  {loanArray.map((loanItem, index) => (
+                    <tr key={index}>
+                      <td>{loanItem.loanId}</td>
+                      <td>{loanItem.duration}</td>
+                      <td>{loanItem.loanType}</td>
+                      <td>
+                        <Link to={"/edit/" + loanItem.loanId}>Edit</Link>
                       </td>
-                          
-
-
-                          
-
-                        
-                      </tr>
-
-                    ))
-                  }
-
+                    </tr>
+                  ))}
                 </tbody>
               </table>
-
-
-              <select >
-              {
-              loan.map((l, index) => (
-              <option key={l.loanId} value={l.loanId}>{l.loanType}</option>
-                   
-                  
-                ))
-                  }
+              <select>
+                {loanArray.map((l, index) => (
+                  <option key={l.loanId} value={l.loanId}>
+                    {l.loanType}
+                  </option>
+                ))}
               </select>
-
             </div>
           </div>
         </div>
-        
       </div>
-
     </div>
-
   );
-}
+};
+
 export default ViewLoans;

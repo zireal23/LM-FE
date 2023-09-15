@@ -10,7 +10,7 @@ function Loanapply() {
   const [itemArray, setItemArray] = useState([]);
   const [itemCategory, setItemCategory] = useState("");
   const [itemDescription, setItemDescription] = useState("");
-  const [itemValue, setItemValue] = useState("");
+  const [itemValuation, setitemValuation] = useState("");
   const [itemMake, setItemMake] = useState("");
 
   useEffect(() => {
@@ -47,14 +47,14 @@ function Loanapply() {
       employeeID,
       itemCategory,
       itemDescription,
-      itemValue,
+      itemValuation,
       itemMake,
     });
     axios.post("http://localhost:7000/saveEmployeeLoan", {
       employeeID,
       itemCategory,
       itemDescription,
-      itemValuation: itemValue,
+      itemValuation,
       itemMake
     }).then(res => {
       alert(res.data);
@@ -73,7 +73,7 @@ function Loanapply() {
   };
 
   const handleItemDescriptionChange = (e) => {
-    setItemValue(itemArray[e.target.selectedIndex - 1].itemValuation);
+    setitemValuation(itemArray[e.target.selectedIndex - 1].itemValuation);
     setItemDescription(e.target.value);
   };
 
@@ -146,8 +146,8 @@ function Loanapply() {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="itemValue">Item Value : </label>
-            {itemValue}
+            <label htmlFor="itemValuation">Item Value : </label>
+            {itemValuation}
           </div>
 
           <button type="submit" className="btn btn-submit">
