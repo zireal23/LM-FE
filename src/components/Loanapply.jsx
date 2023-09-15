@@ -43,13 +43,7 @@ function Loanapply() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      employeeID,
-      itemCategory,
-      itemDescription,
-      itemValue,
-      itemMake,
-    });
+    console.log(itemDescription);
     axios.post("http://localhost:7000/saveEmployeeLoan", {
       employeeID,
       itemCategory,
@@ -138,7 +132,7 @@ function Loanapply() {
               </option>
               {itemArray.map((val, idx) => {
                 return (
-                  <option value={val} key={idx}>
+                  <option value={val.itemDescription} key={idx}>
                     {val.itemDescription}
                   </option>
                 );
