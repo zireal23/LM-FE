@@ -9,11 +9,15 @@ function UserDashboard() {
   const handleApplyLoan = () => {
     navigate("/applyLoan");
   };
+  const handleViewItems = () => {
+    navigate("/itemfetch");
+  };
   const employeeID = sessionStorage.getItem("employeeID");
 
   return (
     <div className="user-dashboard">
       <h1>User Dashboard</h1>
+      {/* <h2>Welcome <span>{employeeID}</span></h2> */}
       <div className="button-container">
         <button className="dashboard-button" onClick={handleViewLoans}>
           View Loans
@@ -21,8 +25,8 @@ function UserDashboard() {
         <button className="dashboard-button" onClick={handleApplyLoan}>
           Apply for Loan
         </button>
-        <button className="dashboard-button">View Items Purchased</button>
-        <span>{employeeID}</span>
+        <button className="dashboard-button" onClick={handleViewItems}>View Items Purchased</button>
+        
       </div>
     </div>
   );

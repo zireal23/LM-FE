@@ -3,25 +3,26 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 //import editIcon from "./../assets/edit.png";
 //import deleteIcon from "./../assets/delete.JPG";
-import "../App.css";
+// import "../App.css";
+import "./ViewItem.css"
 
 
 const ViewItem = () => {
-
+  const employeeID = sessionStorage.getItem("employeeID");
   const navigate = useNavigate();
-  const baseURL = "http://localhost:7000/fetchItems";
-  const [item, setItem] = useState([]);
+  const baseURL = `http://localhost:7000/fetchItemsofUser?employeeId=${employeeID}`;
+  const [itemArray, setItemArray] = useState([]);
 
-  const setItemData = () => {
+  // const setItemData = () => {
+    
+  // }
+
+  useEffect(() => {
     axios.get(baseURL ).then((response) => {
-      setItem(response.data);
+      setItemArray(response.data);
     }).catch(error => {
       alert("Error Ocurred while loading data:" + error);
     });
-  }
-
-  useEffect(() => {
-    setItemData();
   }, []);
 
   return (
@@ -47,13 +48,13 @@ const ViewItem = () => {
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Item_id</th>
-                    <th>Item_Category</th>
-                    <th>Item_Description</th>
-                    <th>Item_Make</th>
-                    <th>Item_Status</th>
-                    <th>Item_Valuation</th>
-                    <th scope="col">Action</th>
+                    <th>Item ID</th>
+                    <th>Item Category</th>
+                    <th>Item Description</th>
+                    <th>Item Make</th>
+                    <th>Item Status</th>
+                    <th>Item Valuation</th>
+                    
 
                   </tr>
                 </thead>
@@ -61,7 +62,7 @@ const ViewItem = () => {
 
                   {
                     
-                    item.map((item, index) => (
+                    itemArray.map((item, index) => (
 
                       <tr>
                         <th scope="row">{item.itemId}</th>
@@ -73,17 +74,7 @@ const ViewItem = () => {
                                               
 
 
-                        <td >
                         
-
-     <Link to={"/edit/" + item.itemId}>Edit
-                        </Link> 
-
-
-                       
-                       
-
-                      </td>
                           
 
 
@@ -99,15 +90,15 @@ const ViewItem = () => {
               </table>
 
 
-              <select >
+              {/* <select >
               {
-              item.map((i, index) => (
+              itemArray.map((i, index) => (
               <option key={i.itemId} value={i.itemId}>{i.itemCategory}</option>
                    
                   
                 ))
                   }
-              </select>
+              </select> */}
 
             </div>
           </div>

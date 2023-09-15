@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
-import "../App.css";
+import "./ViewItem.css";
 
 const ViewLoans = () => {
   const employeeID = sessionStorage.getItem("employeeID");
@@ -25,16 +25,9 @@ const ViewLoans = () => {
   return (
     <div className="card-body">
       <br></br>
-      <nav>
-        <button
-          className="btn btn-primary nav-item active"
-          onClick={() => navigate("/create")}>
-          Create New Loan
-        </button>
-      </nav>
-      <br></br>
       <div className="col-md-12">
         <h4>Loans</h4>
+        
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -44,7 +37,7 @@ const ViewLoans = () => {
                     <th>Loan ID</th>
                     <th>Duration (in years)</th>
                     <th>Loan Type</th>
-                    <th>Action</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
@@ -53,20 +46,18 @@ const ViewLoans = () => {
                       <td>{loanItem.loanId}</td>
                       <td>{loanItem.duration}</td>
                       <td>{loanItem.loanType}</td>
-                      <td>
-                        <Link to={"/edit/" + loanItem.loanId}>Edit</Link>
-                      </td>
+                      
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <select>
+              {/* <select>
                 {loanArray.map((l, index) => (
                   <option key={l.loanId} value={l.loanId}>
                     {l.loanType}
                   </option>
                 ))}
-              </select>
+              </select> */}
             </div>
           </div>
         </div>
