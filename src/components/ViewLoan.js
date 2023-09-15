@@ -27,26 +27,26 @@ const ViewLoans = () => {
       <br></br>
       <div className="col-md-12">
         <h4>Loans</h4>
-        
+        <h4>${employeeID}</h4>
         <div className="container">
           <div className="row">
             <div className="col-12">
               <table className="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Loan ID</th>
-                    <th>Duration (in years)</th>
+                    <th>Loan ID</th>                    
                     <th>Loan Type</th>
-                   
+                    <th>Duration (in years)</th>
+                    <th>Card Issue Date</th> 
                   </tr>
                 </thead>
                 <tbody>
                   {loanArray.map((loanItem, index) => (
                     <tr key={index}>
                       <td>{loanItem.loanId}</td>
-                      <td>{loanItem.duration}</td>
                       <td>{loanItem.loanType}</td>
-                      
+                      <td>{loanItem.duration}</td>                      
+                      <td>{loanItem.card_issue_date}</td>
                     </tr>
                   ))}
                 </tbody>

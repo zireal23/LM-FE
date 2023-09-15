@@ -48,7 +48,7 @@ const ViewItem = () => {
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Item ID</th>
+                    <th>Issue ID</th>
                     <th>Item Category</th>
                     <th>Item Description</th>
                     <th>Item Make</th>
@@ -65,22 +65,12 @@ const ViewItem = () => {
                     itemArray.map((item, index) => (
 
                       <tr>
-                        <th scope="row">{item.itemId}</th>
+                        <td>{item.issue_id}</td>
                         <td>{item.itemCategory}</td>
                         <td>{item.itemDescription}</td>
                         <td>{item.itemMake}</td>
                         <td>{item.itemStatus}</td>
                         <td>{item.itemValuation}</td>
-                                              
-
-
-                        
-                          
-
-
-                          
-
-                        
                       </tr>
 
                     ))
@@ -103,9 +93,7 @@ const ViewItem = () => {
             </div>
           </div>
         </div>
-        
       </div>
-
     </div>
 
   );
