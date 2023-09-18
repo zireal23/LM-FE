@@ -7,6 +7,8 @@ import ViewLoans from './components/ViewLoan';
 import UserDashboard from './components/UserDashboard';
 import Loanapply from './components/Loanapply';
 import ViewItem from "./components/ViewItem";
+import AdminDashboard from './components/AdminDashboard';
+import ViewEmployees from './components/ViewEmployees';
 function App() {
   return (
     <>
@@ -18,6 +20,9 @@ function App() {
       <Route path="/fetch" element={<ViewLoans/>}></Route>
       <Route path="/applyLoan" element={<Loanapply/>}></Route>
       <Route path="/itemfetch" element={<ViewItem/>}></Route>
+      <Route path="/admindashboard" element={<AdminDashboard/>}/>
+
+      <Route path="/viewemployees" element={<ViewEmployees/>}></Route>
 
   
     </Routes>
