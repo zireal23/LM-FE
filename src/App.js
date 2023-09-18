@@ -17,6 +17,8 @@ import ViewAllLoans from './components/ViewAllLoans';
 import EditLoan from './components/EditLoan';
 import ViewAllItems from './components/ViewAllItems';
 import ViewAdminItems from './components/ViewAdminItems';
+import AddItem from './components/AddItem';
+
 function App() {
   return (
     <>
@@ -39,6 +41,7 @@ function App() {
       <Route path="/addloan" element={<AddLoan/>}></Route>
       <Route path="/fetchitemadmin" element={<ViewAllItems/>}></Route>
       <Route path="/viewitems" element={<ViewAdminItems/>}></Route>
+      <Route path="/additems" element={<AddItem/>}></Route>
 
   
     </Routes>

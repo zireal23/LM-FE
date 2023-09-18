@@ -1,0 +1,22 @@
+#signup{
+	font-size: 17px;
+	font-family: Architects Daughter;
+	text-decoration: none;
+	float: left;
+	padding-left: 3%;
+}
+
+.keys{
+	font-size: 17px;
+	font-family: Architects Daughter;
+	text-decoration: none;
+	float: right;
+	padding-right: 3%;
+}
+
+#tagLine{
+	font-size: 15px;
+	font-family: Architects Daughter;
+	padding-left: 42%;
+	margin-bottom: 30px;
+}
