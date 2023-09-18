@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import {useNavigate} from "react-router-dom";
+import { useParams } from 'react-router-dom'; 
 import axios from "axios";
 import './AddEmployee.css'
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
-const AddEmployee = () => {
+const Edit = () => {
   const navigate = useNavigate();
-  const baseURL = "http://localhost:7000/saveEmployee";
-  const [employeeId, setId] = useState('');
+  const baseURL = "http://localhost:7000/editempbyid";
+  const { employeeId } = useParams();
   const [employeeName, setEmployeeName] = useState('');
   const[department,setDepartment]=useState('');
   const[designation,setDesignation]=useState('');
@@ -16,11 +17,6 @@ const AddEmployee = () => {
   const[dateofjoining,setDateofjoining]=useState('');
   const[password,setPassword]=useState('');
 
-
-  const employeeIdChangeHandler = (event) => {
-    //alert(event.target.value);
-    setId(event.target.value);
-  };
 
   const employeeNameChangeHandler = (event) => {
     setEmployeeName(event.target.value);
@@ -48,9 +44,19 @@ const AddEmployee = () => {
 
 
   const submitActionHandler = (event) => {
+    console.log(
+        {employeeId: employeeId,
+        employeeName: employeeName,
+        department:department,
+        designation:designation,
+        gender: gender,
+        dateofbirth:dateofbirth,
+        dateofjoining:dateofjoining,
+        password: password}
+    )
     event.preventDefault();
     axios
-      .post(baseURL, {
+      .put(baseURL, {
         employeeId: employeeId,
         employeeName: employeeName,
         department:department,
@@ -74,7 +80,6 @@ const AddEmployee = () => {
 
   const cancelHandler = () =>{
     //reset the values of input fields
-    setId('');
     setEmployeeName('');
     setDesignation('');
     setDepartment('');
@@ -89,9 +94,6 @@ const AddEmployee = () => {
       
       
       <form onSubmit={submitActionHandler}>
-        
-            Employee ID:
-            <input type="text" value={employeeId} onChange={employeeIdChangeHandler} placeholder="Enter Employee ID" required/><br></br>
         
             Employee Name :
         <input type="text" value={employeeName} onChange={employeeNameChangeHandler} placeholder="Enter name" required/><br></br>
@@ -117,4 +119,4 @@ const AddEmployee = () => {
     
     );
 }
-export default AddEmployee;
+export default Edit;

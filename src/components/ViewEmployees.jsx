@@ -26,20 +26,16 @@ const ViewEmployees= () => {
   }, []);
 
   return (
-    <div class="card-body">
+    <div className="card-body">
       <br>
       </br>
-      <nav>
-        <button
-          className="btn btn-primary nav-item active"
-          onClick={() => navigate("/create")}>
-          Create New Employee
-        </button>
-      </nav>
+        
+      
 
 
       <br></br>
       <div className="col-md-6">
+      
         <h4>Employees List</h4>
 
         <div class="container">
@@ -75,9 +71,13 @@ const ViewEmployees= () => {
                         <td>{employee.designation}</td>
                         <td>{employee.employeeName}</td>
                         <td>{employee.gender}</td>
-                        <td><Link to={"/edit/" + employee.employeeid}>Edit
+
+                        
+                        
+                        <td><Link to={`/edit/${employee.employeeId}` }>Edit
                         </Link></td>
-                        <td><Link to={"/delete/" + employee.employeeid}>Delete
+                       
+                        <td><Link to={`/delete/${employee.employeeId}`}>Delete
                         </Link></td>
 
 
@@ -106,7 +106,10 @@ const ViewEmployees= () => {
                 </tbody>
               </table>
 
-
+              <button
+          onClick={() => navigate("/create")}>
+          Create New Employee
+        </button>
               {/* <select >
               {
               students.map((s, index) => (

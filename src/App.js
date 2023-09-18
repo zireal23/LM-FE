@@ -9,12 +9,19 @@ import Loanapply from './components/Loanapply';
 import ViewItem from "./components/ViewItem";
 import AdminDashboard from './components/AdminDashboard';
 import ViewEmployees from './components/ViewEmployees';
+import Edit from './components/Edit';
+import Delete from './components/Delete';
+import AddLoan from './components/AddLoan';
+import DeleteLoan from './components/DeleteLoan';
+import ViewAllLoans from './components/ViewAllLoans';
+import EditLoan from './components/EditLoan';
+import ViewAllItems from './components/ViewAllItems';
 function App() {
   return (
     <>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<AddEmployee/>}></Route>
+      <Route path="/create" element={<AddEmployee/>}></Route>
       <Route path="/userdashboard" element={<UserDashboard/>}/>
       <Route path="/login" element={<LoginPage/>}></Route>
       <Route path="/fetch" element={<ViewLoans/>}></Route>
@@ -23,8 +30,13 @@ function App() {
       <Route path="/admindashboard" element={<AdminDashboard/>}/>
 
       <Route path="/viewemployees" element={<ViewEmployees/>}></Route>
-
-  
+      <Route path="/fetchloancard" element={<ViewAllLoans/>}></Route>
+      <Route path="/edit/:employeeId" element={<Edit/>}></Route>
+      <Route path="/editloan/:loanId" element={<EditLoan/>}></Route>
+      <Route path="/delete/:employeeId" element={<Delete/>}></Route>
+      <Route path="/deleteloan/:loanId" element={<DeleteLoan/>}></Route>
+      <Route path="/addloan" element={<AddLoan/>}></Route>
+      <Route path="/fetchitemadmin" element={<ViewAllItems/>}></Route>
     </Routes>
     </BrowserRouter>
     </>

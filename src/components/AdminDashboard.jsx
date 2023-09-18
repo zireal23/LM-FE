@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function AdminDashboard() {
   const navigate = useNavigate();
   const handleViewEmployees = () => {
-    navigate("/fetchemployeedata");
+    navigate("/viewemployees");
   };
   const handlefetchloans = () => {
     navigate("/fetchloancard");
@@ -20,7 +20,7 @@ function AdminDashboard() {
       {/* <h2>Welcome <span>{employeeID}</span></h2> */}
       <div className="button-container">
         <button className="dashboard-button" onClick={handleViewEmployees}>
-        Custom Data Management
+        Customer Data Management
         </button>
         <button className="dashboard-button" onClick={handlefetchloans}>
           Loan Card Management
