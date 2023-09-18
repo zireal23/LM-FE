@@ -9,6 +9,7 @@ import Loanapply from './components/Loanapply';
 import ViewItem from "./components/ViewItem";
 import AdminDashboard from './components/AdminDashboard';
 import ViewEmployees from './components/ViewEmployees';
+import ViewAdminItems from './components/ViewAdminItems';
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
       <Route path="/admindashboard" element={<AdminDashboard/>}/>
 
       <Route path="/viewemployees" element={<ViewEmployees/>}></Route>
+      <Route path="/viewitems" element={<ViewAdminItems/>}></Route>
 
   
     </Routes>
