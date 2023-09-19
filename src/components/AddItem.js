@@ -14,7 +14,8 @@ function AddItems() {
     const [issueStatus, setIssueStatus] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8080/distinctLoanTypes").then((res) => {
+        axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
+            console.log(res.data);
             setItemCategoryArray(res.data);
         });
     }, []);
@@ -22,7 +23,7 @@ function AddItems() {
     useEffect(() => {
         if (itemCategory) {
             axios
-                .get(`http://localhost:8080/fetchItemMake?category=${itemCategory}`)
+                .get(`http://localhost:7000/fetchItemMake?category=${itemCategory}`)
                 .then((res) => {
                     setItemMakeArray(res.data);
                 });
@@ -32,7 +33,7 @@ function AddItems() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(itemDescription);
-        axios.post("http://localhost:8080/saveItem", {
+        axios.post("http://localhost:7000/saveItem", {
             itemId,
             issueStatus,
             itemCategory,
