@@ -75,9 +75,9 @@ const ViewAdminItems= () => {
                         <td>{items.itemStatus}</td>
                         <td>{items.itemValuation}</td>
                         
-                        <td><Link to={"/edit/" +items.itemId}>Edit
+                        <td><Link to={"/edititems/" +items.itemId}>Edit
                         </Link></td>
-                        <td><Link to={"/delete/" + items.itemId}>Delete
+                        <td><Link to={"/deleteitems/" + items.itemId}>Delete
                         </Link></td>
 
 

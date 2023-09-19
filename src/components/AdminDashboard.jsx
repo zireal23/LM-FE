@@ -10,7 +10,7 @@ function AdminDashboard() {
     navigate("/fetchloancard");
   };
   const handlefetchitems = () => {
-    navigate("/fetchitemadmin");
+    navigate("/viewitems");
   };
   //const employeeID = sessionStorage.getItem("employeeID");
 

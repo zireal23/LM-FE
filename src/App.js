@@ -17,6 +17,8 @@ import ViewAllLoans from './components/ViewAllLoans';
 import EditLoan from './components/EditLoan';
 import ViewAllItems from './components/ViewAllItems';
 import ViewAdminItems from './components/ViewAdminItems';
+import EditItem from './components/EditItem';
+import DeleteItem from './components/DeleteItem';
 function App() {
   return (
     <>
@@ -37,8 +39,10 @@ function App() {
       <Route path="/delete/:employeeId" element={<Delete/>}></Route>
       <Route path="/deleteloan/:loanId" element={<DeleteLoan/>}></Route>
       <Route path="/addloan" element={<AddLoan/>}></Route>
-      <Route path="/fetchitemadmin" element={<ViewAllItems/>}></Route>
+      {/* <Route path="/fetchitemadmin" element={<ViewAllItems/>}></Route> */}
       <Route path="/viewitems" element={<ViewAdminItems/>}></Route>
+      <Route path="/edititems/:itemId" element={<EditItem/>}></Route>
+      <Route path="/deleteitems/:itemId" element={<DeleteItem/>}></Route>
 
   
     </Routes>
