@@ -19,6 +19,8 @@ import ViewAllItems from './components/ViewAllItems';
 import ViewAdminItems from './components/ViewAdminItems';
 import EditItem from './components/EditItem';
 import DeleteItem from './components/DeleteItem';
+import AddItem from './components/AddItem';
+
 function App() {
   return (
     <>
@@ -43,6 +45,7 @@ function App() {
       <Route path="/viewitems" element={<ViewAdminItems/>}></Route>
       <Route path="/edititems/:itemId" element={<EditItem/>}></Route>
       <Route path="/deleteitems/:itemId" element={<DeleteItem/>}></Route>
+      <Route path="/additems" element={<AddItem/>}></Route>
 
   
     </Routes>
