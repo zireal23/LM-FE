@@ -114,8 +114,8 @@ function AddItems() {
                         Issue Status:
                         <select name="issueStatus" onChange={handleIssueStatusChange}>
                             <option value="">Select</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes">Y</option>
+                            <option value="No">N</option>
                         </select>
                     </label>
 
