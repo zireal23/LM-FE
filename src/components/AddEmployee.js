@@ -96,7 +96,13 @@ const AddEmployee = () => {
             Employee Name :
         <input type="text" value={employeeName} onChange={employeeNameChangeHandler} placeholder="Enter name" required/><br></br>
         Department:
-        <input type="text" value={department} onChange={departmentChangeHandler} placeholder="Enter department" required/><br></br>
+        { /* <input type="text" value={department} onChange={departmentChangeHandler} placeholder="Enter department" required/><br></br> */}
+         <select>
+          <option value={department} onChange={departmentChangeHandler}>Option1</option>
+          <option value={department} onChange={departmentChangeHandler}>Option2</option>
+          <option value={department} onChange={departmentChangeHandler}>Option3</option>
+          <option value={department} onChange={departmentChangeHandler}>Option4</option>
+        </select>
         Designation:
         <input type="text" value={designation} onChange={designationChangeHandler} placeholder="Enter designation" required/><br></br>
         Gender:
