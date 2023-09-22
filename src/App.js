@@ -20,12 +20,16 @@ import ViewAdminItems from './components/ViewAdminItems';
 import EditItem from './components/EditItem';
 import DeleteItem from './components/DeleteItem';
 import AddItem from './components/AddItem';
+import LandingPage from './components/LandingPage';
+import Adminlogin from './components/Adminlogin';
 
 function App() {
   return (
     <>
     <BrowserRouter>
     <Routes>
+      <Route path="/" element={<LandingPage/>}></Route>
+      <Route path="/adminlogin" element={<Adminlogin/>}></Route>
       <Route path="/create" element={<AddEmployee/>}></Route>
       <Route path="/userdashboard" element={<UserDashboard/>}/>
       <Route path="/login" element={<LoginPage/>}></Route>

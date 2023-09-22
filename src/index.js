@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <div class="d-flex flex-column justify-content-center w-100 h-100"></div>
     <App />
   </React.StrictMode>
 );

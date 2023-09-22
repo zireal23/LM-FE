@@ -32,7 +32,7 @@ const LoginPage = () => {
 
   return (
     <div className="login_page">
-      <h2>Login</h2>
+      <h2>User Login</h2>
       <form onSubmit={handleLoginPage}>
         <div className="form-group">
           <label htmlFor="employeeId">Employee ID</label>
