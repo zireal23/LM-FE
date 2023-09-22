@@ -43,7 +43,7 @@ function Loanapply() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(itemDescription);
+    console.log(itemDescription, employeeID,itemCategory,itemValuation,itemMake);
     axios.post("http://localhost:7000/saveEmployeeLoan", {
       employeeID,
       itemCategory,

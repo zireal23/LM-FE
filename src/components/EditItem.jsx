@@ -126,8 +126,8 @@ const handleIssueStatusChange = (e) => {
                     Issue Status:
                     <select name="issueStatus" onChange={handleIssueStatusChange}>
                         <option value="">Select</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
                     </select>
                 </label>
 

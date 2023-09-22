@@ -11,7 +11,7 @@ function AddItems() {
     const [itemValuation, setItemValuation] = useState();
     const [itemMake, setItemMake] = useState("");
     const [itemId, setItemId] = useState();
-    const [issueStatus, setIssueStatus] = useState("");
+    const [itemStatus, setItemStatus] = useState("");
 
     useEffect(() => {
         axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
@@ -32,10 +32,10 @@ function AddItems() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(itemDescription);
+        console.log(itemStatus);
         axios.post("http://localhost:7000/saveItem", {
             itemId,
-            issueStatus,
+            itemStatus,
             itemCategory,
             itemDescription,
             itemMake,
@@ -47,7 +47,7 @@ function AddItems() {
 
     const handleItemCategoryChange = (e) => {
         setItemCategory(e.target.value);
-        document.getElementById("itemMake").selectedIndex = 0;
+        // document.getElementById("itemMake").selectedIndex = 0;
         // document.getElementById("itemDescription").selectedIndex = 0;
     };
 
@@ -69,7 +69,7 @@ function AddItems() {
     };
 
     const handleIssueStatusChange = (e) => {
-        setIssueStatus(e.target.value);
+        setItemStatus(e.target.value);
     };
 
     return (
@@ -82,24 +82,7 @@ function AddItems() {
                     </label>
                     <div className="form-group">
                         <label htmlFor="itemCategory">Item Category : </label>
-                        <select
-                            className="form-control"
-                            id="itemCategory"
-                            onChange={handleItemCategoryChange}
-                        >
-                            <option disabled selected>
-                                Please Select a Value
-                            </option>
-                            {itemCategoryArray.map((val, idx) => {
-                                return (
-                                    <option value={val} key={idx}>
-                                        {val}
-                                    </option>
-                                );
-                            })}
-                            {/* <option value="Stationary">Stationary</option>
-              <option value="Crockery">Crockery</option> */}
-                        </select>
+                        <input type="text" name="name" onChange={handleItemCategoryChange}/>
                     </div>
 
                     <label>
@@ -112,31 +95,17 @@ function AddItems() {
 
                     <label>
                         Issue Status:
-                        <select name="issueStatus" onChange={handleIssueStatusChange}>
-                            <option value="">Select</option>
-                            <option value="Yes">Y</option>
-                            <option value="No">N</option>
+                        <select name="itemStatus" onChange={handleIssueStatusChange}>
+                            {/* <option value="">Select</option> */}
+                            <option value="Y">Y</option>
+                            <option value="N">N</option>
                         </select>
                     </label>
 
                     <div className="form-group">
                         <label htmlFor="itemMake">Item Make : </label>
-                        <select
-                            className="form-control"
-                            id="itemMake"
-                            onChange={handleItemMakeChange}
-                        >
-                            <option selected disabled>
-                                Please select an option
-                            </option>
-                            {itemMakeArray.map((val, idx) => {
-                                return (
-                                    <option value={val} key={idx}>
-                                        {val}
-                                    </option>
-                                );
-                            })}
-                        </select>
+                        <input type="text" name="name" onChange={handleItemMakeChange}/>
+                       
                     </div>
 
                     <button type="submit" className="btn btn-submit">
