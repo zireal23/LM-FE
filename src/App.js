@@ -37,7 +37,6 @@ function App() {
       <Route path="/applyLoan" element={<Loanapply/>}></Route>
       <Route path="/itemfetch" element={<ViewItem/>}></Route>
       <Route path="/admindashboard" element={<AdminDashboard/>}/>
-
       <Route path="/viewemployees" element={<ViewEmployees/>}></Route>
       <Route path="/fetchloancard" element={<ViewAllLoans/>}></Route>
       <Route path="/edit/:employeeId" element={<Edit/>}></Route>

@@ -106,7 +106,10 @@ const ViewAdminItems= () => {
                 </tbody>
               </table>
 
-
+              <button
+                onClick={() => navigate("/additems")}>
+                Create New Item
+              </button>
               {/* <select >
               {
               students.map((s, index) => (
