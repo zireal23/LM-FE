@@ -6,28 +6,28 @@ import "./Adminlogin.css";
 import { useNavigate } from "react-router-dom";
 
 const Adminlogin = () => {
-  const baseURL = "http://localhost:7000/adminlogin";
-  const [adminId, setAdminId] = useState("");
+  const baseURL = "http://localhost:7000/loginadmin";
+  const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const handleLoginPage = (event) => {
     event.preventDefault();
     axios
       .post(baseURL, {
-        adminId: adminId,
+        employeeId: employeeId,
         password: password,
       })
       .then((response) => {
         // alert(response.data.adminName);
         console.log(response.data);
         alert("Success!");
-        sessionStorage.setItem("adminID", adminId);
+        sessionStorage.setItem("employeeID", employeeId);
         navigate("/admindashboard");
       })
       .catch((error) => {
         alert("Failed");
       });
-    console.log("Login:", { adminId, password });
+    console.log("Login:", { employeeId: employeeId, password });
   };
 
   return (
@@ -35,12 +35,12 @@ const Adminlogin = () => {
       <h2>Admin Login</h2>
       <form onSubmit={handleLoginPage}>
         <div className="form-group">
-          <label htmlFor="adminId">Admin ID</label>
+          <label htmlFor="employeeId">Admin ID</label>
           <input
             type="text"
-            id="adminId"
-            value={adminId}
-            onChange={(e) => setAdminId(e.target.value)}
+            id="employeeId"
+            value={employeeId}
+            onChange={(e) => setEmployeeId(e.target.value)}
             required
           />
         </div>
