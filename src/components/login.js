@@ -6,7 +6,7 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const baseURL = "http://localhost:7000/login";
+  const baseURL = "http://localhost:7000/login";;
   const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();

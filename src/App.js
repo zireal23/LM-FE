@@ -29,6 +29,7 @@ function App() {
       <Route path="/create" element={<AddEmployee/>}></Route>
       <Route path="/userdashboard" element={<UserDashboard/>}/>
       <Route path="/login" element={<LoginPage/>}></Route>
+      <Route path="/loginadmin" element={<LoginPage/>}></Route>
       <Route path="/fetch" element={<ViewLoans/>}></Route>
       <Route path="/applyLoan" element={<Loanapply/>}></Route>
       <Route path="/itemfetch" element={<ViewItem/>}></Route>
