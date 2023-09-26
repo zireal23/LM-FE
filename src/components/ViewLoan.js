@@ -4,6 +4,9 @@ import axios from "axios";
 
 const ViewLoans = () => {
   const employeeID = sessionStorage.getItem("employeeID");
+  const employeeName = sessionStorage.getItem("employeeName");
+  const designation = sessionStorage.getItem("designation");
+  const department = sessionStorage.getItem("department");
   const navigate = useNavigate();
   const baseURL = `http://localhost:7000/fetchLoans?employeeId=${employeeID}`;
   const [loanArray, setLoanArray] = useState([]);
@@ -25,11 +28,13 @@ const ViewLoans = () => {
     <div className="card-body">
       <br></br>
       <div className="col-md-12">
-        <h4>Loans</h4>
-        <h4>${employeeID}</h4>
         <div className="container">
           <div className="row">
             <div className="col-12">
+            <p>ID: {employeeID}</p>
+              <p>Name: {employeeName}</p>
+              <p>Designation: {designation}</p>
+              <p>Department: {department}</p>
             {loanArray.length === 0 ? (
                 <p>No loans to be shown</p>
               ) :(<table className="table table-bordered table-striped">

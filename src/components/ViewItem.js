@@ -8,8 +8,11 @@ import axios from "axios";
 
 const ViewItem = () => {
   const employeeID = sessionStorage.getItem("employeeID");
+  const employeeName = sessionStorage.getItem("employeeName");
+  const designation = sessionStorage.getItem("designation");
+  const department = sessionStorage.getItem("department");
   const navigate = useNavigate();
-  const baseURL = `http://localhost:7000/fetchItemsofUser?employeeId=${employeeID}`;
+  const baseURL = `http://localhost:7000/fetchItemsOfUser?employeeId=${employeeID}`;
   const [itemArray, setItemArray] = useState([]);
 
   // const setItemData = () => {
@@ -26,24 +29,17 @@ const ViewItem = () => {
 
   return (
     <div class="card-body">
-      <br>
-      </br>
-      <nav>
-        <button
-          className="btn btn-primary nav-item active"
-          onClick={() => navigate("/create")}>
-          Create New Item
-        </button>
-      </nav>
-
-
-      <br></br>
+      
       <div className="col-md-6">
         <h4> Item</h4>
 
         <div class="container">
           <div class="row">
             <div class="col-12">
+              <p>ID: {employeeID}</p>
+              <p>Name: {employeeName}</p>
+              <p>Designation: {designation}</p>
+              <p>Department: {department}</p>
               {itemArray.length === 0 ? (
                 <p>No items to be shown</p>
               ) : (<table class="table table-bordered table-striped">

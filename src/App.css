@@ -343,7 +343,7 @@ form.sign-in-form {
 }
 
 .container:before {
-  content: "";
+  /* content: ""; */
   position: absolute;
   height: 2000px;
   width: 2000px;
