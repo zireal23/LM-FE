@@ -7,7 +7,8 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const baseURL = "http://localhost:7000/login";
+  const employeeLoginURL = "http://localhost:7000/login";
+  const adminLoginURL = "http://localhost:7000/login/loginadmin";
   const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const Login = () => {
   const handleUserLogin = (event) => {
     event.preventDefault();
     axios
-      .post(baseURL, {
+      .post(employeeLoginURL, {
         employeeId: employeeId,
         password: password,
       })
@@ -57,7 +58,7 @@ const Login = () => {
   const handleAdminLogin = (event) => {
     event.preventDefault();
     axios
-      .post(baseURL, {
+      .post(adminLoginURL, {
         employeeId: employeeId,
         password: password,
       })
