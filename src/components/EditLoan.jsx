@@ -3,6 +3,8 @@ import {useNavigate} from "react-router-dom";
 import { useParams } from 'react-router-dom'; 
 import axios from "axios";
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { FaCashRegister , FaClock } from "react-icons/fa";
+import "../App.css";
 
 const EditLoan = () => {
   const navigate = useNavigate();
@@ -54,19 +56,35 @@ const EditLoan = () => {
     return(
       
       
+      <div className='addEmployee'>
+
       <form onSubmit={submitActionHandler}>
-        
-            Loan Type :
-        <input type="text" value={loanType} onChange={loanTypeChangeHandler} placeholder="Enter name" required/><br></br>
-        Duration:
-        <input type="text" value={duration} onChange={durationChangeHandler} placeholder="Enter department" required/><br></br>
-        <br></br>
-        <button type='submit'>Edit Loan</button>
+        <h2 className="title">Edit Loan</h2>
+
+
+
+        <div className='input-field'>
+          <i className="fas fa-cash-register">
+            <FaCashRegister style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={loanType} onChange={loanTypeChangeHandler} placeholder="Loan Type" required /></div>
+
+        <div className='input-field'>
+          <i className="fas fa-clock">
+            <FaClock style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={duration} onChange={durationChangeHandler} placeholder="Duration" required /></div>
+
+
+
+        <button type='submit' className="btn solid">Edit Loan</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' onClick={()=>cancelHandler()}>Cancel</button> 
+        <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
+
       </form>
 
-    
+    </div>
+
     
     );
 }

@@ -48,7 +48,13 @@ const Login = () => {
         // alert(response.data.employeeName);
         console.log(response.data);
         alert("Success!");
+
+        const {employeeName, designation, department, result} = response.data;
+        sessionStorage.setItem("employeeName", employeeName);
+        sessionStorage.setItem("designation", designation);
+        sessionStorage.setItem("department", department);
         sessionStorage.setItem("employeeID", employeeId);
+        
         navigate("/userdashboard");
       })
       .catch((error) => {
