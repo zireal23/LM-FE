@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddEmployee from "./components/AddEmployee";
-
+import Login from "./components/Login";
 import ViewLoans from "./components/ViewLoan";
 import UserDashboard from "./components/UserDashboard";
 import Loanapply from "./components/Loanapply";
@@ -29,7 +29,7 @@ function App() {
     <Routes>
       <Route path="/create" element={<AddEmployee/>}></Route>
       <Route path="/userdashboard" element={<UserDashboard/>}/>
-      <Route path="/login" element={<LoginPage/>}></Route>
+      <Route path="/login" element={<Login/>}></Route>
       <Route path="/fetch" element={<ViewLoans/>}></Route>
       <Route path="/applyLoan" element={<Loanapply/>}></Route>
       <Route path="/itemfetch" element={<ViewItem/>}></Route>

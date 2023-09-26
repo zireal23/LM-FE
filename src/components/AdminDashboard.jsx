@@ -1,5 +1,5 @@
 import React from "react";
-import "./AdminDashboard.css";
+// import "./AdminDashboard.css";
 import { useNavigate } from "react-router-dom";
 function AdminDashboard() {
   const navigate = useNavigate();
