@@ -20,6 +20,7 @@ import EditItem from './components/EditItem';
 import DeleteItem from './components/DeleteItem';
 import AddItem from './components/AddItem';
 import Navbar from './components/nav';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
     <Routes>
       <Route path="/create" element={<AddEmployee/>}></Route>
       <Route path="/userdashboard" element={<UserDashboard/>}/>
-      <Route path="/login" element={<Login/>}></Route>
+      <Route path="/" element={<Login/>}></Route>
       <Route path="/fetch" element={<ViewLoans/>}></Route>
       <Route path="/applyLoan" element={<Loanapply/>}></Route>
       <Route path="/itemfetch" element={<ViewItem/>}></Route>
@@ -47,6 +48,7 @@ function App() {
       <Route path="/edititems/:itemId" element={<EditItem/>}></Route>
       <Route path="/deleteitems/:itemId" element={<DeleteItem/>}></Route>
       <Route path="/additems" element={<AddItem/>}></Route>
+      <Route path='/*' element={<ErrorPage/>}></Route>
 
   
     </Routes>

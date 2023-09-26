@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-// import './nav.css';
+import '../App.css';
 
 const Navbar = () => {
     return (
@@ -7,11 +7,11 @@ const Navbar = () => {
         <div className="navbar-container">
           <div className="left-section">
                {/* <NavLink to="/landingpage" activeClassName="active" inactiveClassName="inactive">LoanLeLo</NavLink> */}
-                <a href="/landingpage">LoanLeLo</a>
+                <a href="/">LoanLeLo</a>
           </div>
           <div className="right-section">
-            <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
+            <a href="/l">Login</a>
+            <a href="/">Signup</a>
           </div>
         </div>
       </nav>
