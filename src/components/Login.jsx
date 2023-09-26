@@ -174,23 +174,21 @@ const Login = () => {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3>New here ?</h3>
+            <h3>An Admin here?</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
+              Use the Admin login portal
             </p>
             <button className="btn transparent" id="sign-up-btn">
-              Sign up
+              Admin Sign in
             </button>
           </div>
           <img src="./login.svg" className="image" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
-            <h3>One of us ?</h3>
+            <h3>Already an Employee</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
+              Use the employee login portal
             </p>
             <button className="btn transparent" id="sign-in-btn">
               Sign in
