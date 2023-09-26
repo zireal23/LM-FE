@@ -7,7 +7,8 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const baseURL = "http://localhost:7000/login";
+  const employeeLoginURL = "http://localhost:7000/login";
+  const adminLoginURL = "http://localhost:7000/login/loginadmin";
   const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
   // const [employeeName, setEmployeeName] = useState("");
@@ -44,7 +45,7 @@ const Login = () => {
   const handleUserLogin = (event) => {
     event.preventDefault();
     axios
-      .post(baseURL, {
+      .post(employeeLoginURL, {
         employeeId: employeeId,
         password: password,
       })
@@ -69,7 +70,7 @@ const Login = () => {
   const handleAdminLogin = (event) => {
     event.preventDefault();
     axios
-      .post(baseURL, {
+      .post(adminLoginURL, {
         employeeId: employeeId,
         password: password,
       })
@@ -185,23 +186,21 @@ const Login = () => {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3>New here ?</h3>
+            <h3>An Admin here?</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
+              Use the Admin login portal
             </p>
             <button className="btn transparent" id="sign-up-btn">
-              Sign up
+              Admin Sign in
             </button>
           </div>
           <img src="./login.svg" className="image" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
-            <h3>One of us ?</h3>
+            <h3>Already an Employee</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
+              Use the employee login portal
             </p>
             <button className="btn transparent" id="sign-in-btn">
               Sign in

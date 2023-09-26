@@ -11,7 +11,6 @@ const Navbar = () => {
           </div>
           <div className="right-section">
             <a href="/l">Login</a>
-            <a href="/">Signup</a>
           </div>
         </div>
       </nav>
