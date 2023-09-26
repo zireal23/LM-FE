@@ -20,6 +20,7 @@ import EditItem from './components/EditItem';
 import DeleteItem from './components/DeleteItem';
 import AddItem from './components/AddItem';
 import Navbar from './components/nav';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
       <Route path="/edititems/:itemId" element={<EditItem/>}></Route>
       <Route path="/deleteitems/:itemId" element={<DeleteItem/>}></Route>
       <Route path="/additems" element={<AddItem/>}></Route>
+      <Route path='/*' element={<ErrorPage/>}></Route>
 
   
     </Routes>

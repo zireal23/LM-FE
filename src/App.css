@@ -694,15 +694,17 @@ table {
   background-color: var(--bg-color);
   display: inline-flex;
   height: 100vh;
-  width: 1000vh;
+  width: 100vw;
  flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .errorpage h1{
   opacity: 0.5;
   font-size: 90px;
+  
 }
 
 
@@ -717,4 +719,44 @@ table {
 
 .naving:hover{
   background-color: yellowgreen;
+}
+
+/* Navbar CSS */
+
+.navbar-container{
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.left-section a{
+  color: black;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 9px;
+  background-color: rgb(187, 187, 66);
+
+}
+
+.left-section a:hover{
+  background-color: #4c9fbb;
+  cursor: pointer;
+}
+
+.right-section a{
+
+  /* padding: 20px; */
+  color: black;
+  border: 2px solid white;
+  border-radius: 20%;
+  padding: 9px;
+  background-color: rgb(127, 123, 190);
+  margin: 9px;
+
+  
+}
+
+.right-section a:hover{
+  background-color: #29a086;
+  cursor: pointer;
 }
