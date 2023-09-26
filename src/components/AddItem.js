@@ -4,6 +4,7 @@ import axios from "axios";
 import "./AddItem.css";
 
 function AddItems() {
+    const navigate = useNavigate();
     const [itemCategoryArray, setItemCategoryArray] = useState([]);
     const [itemMakeArray, setItemMakeArray] = useState([]);
     const [itemCategory, setItemCategory] = useState("");
@@ -42,6 +43,7 @@ function AddItems() {
             itemValuation
         }).then(res => {
             alert(res.data);
+            navigate("/viewitems");
         })
     };
 
@@ -68,14 +70,15 @@ function AddItems() {
         setItemId(e.target.value);
     };
 
-    const handleIssueStatusChange = (e) => {
+    const handleItemStatusChange = (e) => {
         setItemStatus(e.target.value);
     };
 
     return (
         <div className="container">
+            <h1 className="mb-4">Add Item</h1>
             <div className="form-container">
-                <h1 className="mb-4">Add Item</h1>
+                
                 <form onSubmit={handleSubmit}>
                     <label>
                         Item ID: <input type="text" name="name" onChange={handleItemIdChange}/>
@@ -95,8 +98,8 @@ function AddItems() {
 
                     <label>
                         Issue Status:
-                        <select name="itemStatus" onChange={handleIssueStatusChange}>
-                            {/* <option value="">Select</option> */}
+                        <select name="itemStatus" onChange={handleItemStatusChange}>
+                            <option value="">Select</option>
                             <option value="Y">Y</option>
                             <option value="N">N</option>
                         </select>

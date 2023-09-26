@@ -45,7 +45,9 @@ const ViewAdminItems= () => {
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <table class="table table-bordered table-striped">
+              {items.length === 0 ? (
+                <p>No items to be shown</p>
+              ) : (<table class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Item ID</th>
@@ -79,46 +81,19 @@ const ViewAdminItems= () => {
                         </Link></td>
                         <td><Link to={"/deleteitems/" + items.itemId}>Delete
                         </Link></td>
-
-
-                        <td >
-                        
-
-    
-    
-
-
-                       
-                       
-
-                      </td>
-                          
-
-
-                          
-
-                        
                       </tr>
 
                     ))
                   }
 
                 </tbody>
-              </table>
+              </table>)}
 
               <button
                 onClick={() => navigate("/additems")}>
                 Create New Item
               </button>
-              {/* <select >
-              {
-              students.map((s, index) => (
-              <option key={s.regno} value={s.regno}>{s.name}</option>
-                   
-                  
-                ))
-                  }
-              </select> */}
+              
 
             </div>
           </div>

@@ -4,6 +4,7 @@ import axios from "axios";
 import "./Loanapply.css";
 
 function Loanapply() {
+  const navigate = useNavigate();
   const employeeID = sessionStorage.getItem("employeeID");
   const [itemCategoryArray, setItemCategoryArray] = useState([]);
   const [itemMakeArray, setItemMakeArray] = useState([]);
@@ -53,6 +54,7 @@ function Loanapply() {
     }).then(res => {
       alert(res.data);
     })
+    navigate("/userdashboard");
   };
 
   const handleItemCategoryChange = (e) => {

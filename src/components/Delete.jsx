@@ -39,7 +39,7 @@ const Delete = () => {
       
       <form onSubmit={submitActionHandler}>
         
-           
+        <h3>Do you want to delete this employee?</h3>
         <button type='submit'>Yes</button>
         &nbsp;&nbsp;&nbsp;
         <button type='reset' onClick={()=>cancelHandler()}>No</button> 

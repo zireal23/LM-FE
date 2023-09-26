@@ -41,84 +41,58 @@ const ViewEmployees= () => {
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <table class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>Employee ID</th>
-                    <th>Date of Birth</th>
-                    <th>Date of Joining</th>
-                    <th>Department</th>
-                    <th>Designation</th>
-                    <th>Employee Name</th>
-                    <th>Gender</th>
-                    
-                    <th scope="col">Action</th>
-                    <th scope="col">Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-
-                  {
-                    
-                    employees.map((employee, index) => (
-
-                      <tr>
-                        <th scope="row">{employee.employeeId}</th>
-
-                        <td>{employee.dateofbirth}</td>
-                        <td>{employee.dateofjoining}</td>
-                        <td>{employee.department}</td>
-                        <td>{employee.designation}</td>
-                        <td>{employee.employeeName}</td>
-                        <td>{employee.gender}</td>
-
-                        
-                        
-                        <td><Link to={`/edit/${employee.employeeId}` }>Edit
-                        </Link></td>
-                       
-                        <td><Link to={`/delete/${employee.employeeId}`}>Delete
-                        </Link></td>
-
-
-                        <td >
-                        
-
-    
-    
-
-
-                       
-                       
-
-                      </td>
-                          
-
-
-                          
-
-                        
-                      </tr>
-
-                    ))
-                  }
-
-                </tbody>
-              </table>
-
-              <button
-          onClick={() => navigate("/create")}>
-          Create New Employee
-        </button>
-              {/* <select >
-              {
-              students.map((s, index) => (
-              <option key={s.regno} value={s.regno}>{s.name}</option>
-                   
+            {employees.length === 0 ? (
+                <p>No employees to be shown</p>
+              ) : (<table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>Date of Birth</th>
+                  <th>Date of Joining</th>
+                  <th>Department</th>
+                  <th>Designation</th>
+                  <th>Employee Name</th>
+                  <th>Gender</th>
                   
-                ))
-                  }
-              </select> */}
+                  <th scope="col">Action</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {
+                  
+                  employees.map((employee, index) => (
+
+                    <tr>
+                      <th scope="row">{employee.employeeId}</th>
+
+                      <td>{employee.dateofbirth}</td>
+                      <td>{employee.dateofjoining}</td>
+                      <td>{employee.department}</td>
+                      <td>{employee.designation}</td>
+                      <td>{employee.employeeName}</td>
+                      <td>{employee.gender}</td>
+
+                      
+                      
+                      <td><Link to={`/edit/${employee.employeeId}` }>Edit
+                      </Link></td>
+                      
+                      <td><Link to={`/delete/${employee.employeeId}`}>Delete
+                      </Link></td>
+
+                    </tr>
+
+                  ))
+                }
+
+              </tbody>
+            </table>)}
+
+              <button onClick={() => navigate("/create")}>
+                Create New Employee
+              </button>
 
             </div>
           </div>

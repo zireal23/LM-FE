@@ -30,43 +30,38 @@ const ViewAllLoans = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <table className="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>Loan ID</th>                    
-                    <th>Loan Type</th>
-                    <th>Duration (in years)</th>
-                    <th scope="col">Action</th>
-                    <th scope="col">Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {loanArray.map((loanItem, index) => (
-                    <tr key={index}>
-                      <td>{loanItem.loanId}</td>
-                      <td>{loanItem.loanType}</td>
-                      <td>{loanItem.duration}</td>  
-                      <td><Link to={`/editloan/${loanItem.loanId}` }>Edit
-                        </Link></td>
-                       
-                        <td><Link to={`/deleteloan/${loanItem.loanId}`}>Delete
-                        </Link></td>    
+            {loanArray.length === 0 ? (
+                <p>No loans to be shown</p>
+              ) : (
+                <table className="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Loan ID</th>                    
+                      <th>Loan Type</th>
+                      <th>Duration (in years)</th>
+                      <th scope="col">Action</th>
+                      <th scope="col">Delete</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-              {/* <select>
-                {loanArray.map((l, index) => (
-                  <option key={l.loanId} value={l.loanId}>
-                    {l.loanType}
-                  </option>
-                ))}
-              </select> */}
-
-        <button
-          onClick={() => navigate("/addloan")}>
-          Create New Loan
-        </button>
+                  </thead>
+                  <tbody>
+                    {loanArray.map((loanItem, index) => (
+                      <tr key={index}>
+                        <td>{loanItem.loanId}</td>
+                        <td>{loanItem.loanType}</td>
+                        <td>{loanItem.duration}</td>  
+                        <td><Link to={`/editloan/${loanItem.loanId}` }>Edit
+                          </Link></td>
+                        <td><Link to={`/deleteloan/${loanItem.loanId}`}>Delete
+                          </Link></td>    
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+              <button
+                onClick={() => navigate("/addloan")}>
+                Create New Loan
+              </button>
             </div>
           </div>
         </div>

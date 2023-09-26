@@ -15,7 +15,7 @@ const EditItem = () => {
   const [itemDescription, setItemDescription] = useState("");
   const [itemValuation, setItemValuation] = useState();
   const [itemMake, setItemMake] = useState("");
-  const [issueStatus, setIssueStatus] = useState("");
+  const [itemStatus, setItemStatus] = useState("");
 
   useEffect(() => {
     axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
@@ -53,15 +53,15 @@ const handleItemValueChange = (e) => {
     setItemValuation(e.target.value);
 };
 
-const handleIssueStatusChange = (e) => {
-    setIssueStatus(e.target.value);
+const handleItemStatusChange = (e) => {
+    setItemStatus(e.target.value);
 };
   const submitActionHandler = (event) => {
     event.preventDefault();
     axios
       .put(baseURL, {
             itemId,
-            issueStatus,
+            itemStatus: itemStatus,
             itemCategory,
             itemDescription,
             itemMake,
@@ -124,7 +124,7 @@ const handleIssueStatusChange = (e) => {
 
                 <label>
                     Issue Status:
-                    <select name="issueStatus" onChange={handleIssueStatusChange}>
+                    <select name="issueStatus" onChange={handleItemStatusChange}>
                         <option value="">Select</option>
                         <option value="Y">Y</option>
                         <option value="N">N</option>

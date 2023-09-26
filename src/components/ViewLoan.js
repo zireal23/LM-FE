@@ -31,7 +31,9 @@ const ViewLoans = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <table className="table table-bordered table-striped">
+            {loanArray.length === 0 ? (
+                <p>No loans to be shown</p>
+              ) :(<table className="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Loan ID</th>                    
@@ -50,14 +52,8 @@ const ViewLoans = () => {
                     </tr>
                   ))}
                 </tbody>
-              </table>
-              {/* <select>
-                {loanArray.map((l, index) => (
-                  <option key={l.loanId} value={l.loanId}>
-                    {l.loanType}
-                  </option>
-                ))}
-              </select> */}
+              </table>)}
+              
             </div>
           </div>
         </div>

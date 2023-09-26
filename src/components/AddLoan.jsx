@@ -60,7 +60,7 @@ const AddLoan = () => {
       <form onSubmit={submitActionHandler}>
         
             Loan ID:
-            <input type="text" value={loanId} onChange={loanIdChangeHandler} placeholder="Enter Employee ID" required/><br></br>
+            <input type="text" value={loanId} onChange={loanIdChangeHandler} placeholder="Enter Loan ID" required/><br></br>
         
             Loan Type :
         <input type="text" value={loanType} onChange={loanTypeChangeHandler} placeholder="Enter name" required/><br></br>

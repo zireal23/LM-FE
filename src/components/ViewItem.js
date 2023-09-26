@@ -45,7 +45,9 @@ const ViewItem = () => {
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <table class="table table-bordered table-striped">
+              {itemArray.length === 0 ? (
+                <p>No items to be shown</p>
+              ) : (<table class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Issue ID</th>
@@ -77,18 +79,7 @@ const ViewItem = () => {
                   }
 
                 </tbody>
-              </table>
-
-
-              {/* <select >
-              {
-              itemArray.map((i, index) => (
-              <option key={i.itemId} value={i.itemId}>{i.itemCategory}</option>
-                   
-                  
-                ))
-                  }
-              </select> */}
+              </table>)}
 
             </div>
           </div>
