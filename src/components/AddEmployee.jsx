@@ -87,7 +87,7 @@ const AddEmployee = () => {
     return(
       
       
-      <form onSubmit={submitActionHandler}>
+      <form className="addEmployee" onSubmit={submitActionHandler}>
         
             Employee ID:
             <input type="text" value={employeeId} onChange={employeeIdChangeHandler} placeholder="Enter Employee ID" required/><br></br>
@@ -113,9 +113,9 @@ const AddEmployee = () => {
         Enter Password:
         <input type="password" value={password} onChange={passwordChangeHandler} placeholder="Enter Password" required/><br></br>
         <br></br>
-        <button type='submit'>Add Employee</button>
+        <button type='submit' className="btn solid">Add Employee</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' onClick={()=>cancelHandler()}>Cancel</button> 
+        <button type='reset' className="btn solid" onClick={()=>cancelHandler() }>Cancel</button> 
       </form>
 
     
