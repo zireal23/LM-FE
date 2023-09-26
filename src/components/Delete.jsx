@@ -35,16 +35,17 @@ const Delete = () => {
   }
     return(
       
+      <div className='addEmployee'>
       
       <form onSubmit={submitActionHandler}>
         
-        <h3>Do you want to delete this employee?</h3>
-        <button type='submit'>Yes</button>
+        <h3 className='del'>Do you want to delete this employee?</h3>
+        <button type='submit' className="btn solid">Yes</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' onClick={()=>cancelHandler()}>No</button> 
+        <button type='reset' className="btn solid" onClick={()=>cancelHandler()}>No</button> 
       </form>
 
-    
+      </div>
     
     );
 }

@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import {useNavigate} from "react-router-dom";
-import { useParams } from 'react-router-dom'; 
+import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaTransgender, FaGenderless, FaMale, FaCalendar } from "react-icons/fa";
+import "../App.css"
 
 const Edit = () => {
   const navigate = useNavigate();
   const baseURL = "http://localhost:7000/editempbyid";
   const { employeeId } = useParams();
   const [employeeName, setEmployeeName] = useState('');
-  const[department,setDepartment]=useState('');
-  const[designation,setDesignation]=useState('');
-  const[gender,setGender]=useState('');
-  const[dateofbirth,setdateofbirth]=useState('');
-  const[dateofjoining,setDateofjoining]=useState('');
-  const[password,setPassword]=useState('');
+  const [department, setDepartment] = useState('');
+  const [designation, setDesignation] = useState('');
+  const [gender, setGender] = useState('');
+  const [dateofbirth, setdateofbirth] = useState('');
+  const [dateofjoining, setDateofjoining] = useState('');
+  const [password, setPassword] = useState('');
 
 
   const employeeNameChangeHandler = (event) => {
@@ -44,40 +46,42 @@ const Edit = () => {
 
   const submitActionHandler = (event) => {
     console.log(
-        {employeeId: employeeId,
+      {
+        employeeId: employeeId,
         employeeName: employeeName,
-        department:department,
-        designation:designation,
+        department: department,
+        designation: designation,
         gender: gender,
-        dateofbirth:dateofbirth,
-        dateofjoining:dateofjoining,
-        password: password}
+        dateofbirth: dateofbirth,
+        dateofjoining: dateofjoining,
+        password: password
+      }
     )
     event.preventDefault();
     axios
       .put(baseURL, {
         employeeId: employeeId,
         employeeName: employeeName,
-        department:department,
-        designation:designation,
+        department: department,
+        designation: designation,
         gender: gender,
-        dateofbirth:dateofbirth,
-        dateofjoining:dateofjoining,
+        dateofbirth: dateofbirth,
+        dateofjoining: dateofjoining,
         password: password
       })
       .then((response) => {
-       // alert(response.data.employeeName);
-       console.log(response.data);
-        alert("Employee "+ employeeName +" added!");
+        // alert(response.data.employeeName);
+        console.log(response.data);
+        alert("Employee " + employeeName + " added!");
         navigate("/viewemployees");
-        
+
       }).catch(error => {
-        alert("error==="+error);
+        alert("error===" + error);
       });
 
   };
 
-  const cancelHandler = () =>{
+  const cancelHandler = () => {
     //reset the values of input fields
     setEmployeeName('');
     setDesignation('');
@@ -86,36 +90,65 @@ const Edit = () => {
     setdateofbirth('');
     setDateofjoining('');
     setPassword('');
-   // navigate("/read");
+    // navigate("/read");
 
   }
-    return(
-      
-      
+  return (
+
+    <div className='addEmployee'>
+
       <form onSubmit={submitActionHandler}>
-        
-            Employee Name :
-        <input type="text" value={employeeName} onChange={employeeNameChangeHandler} placeholder="Enter name" required/><br></br>
-        Department:
-        <input type="text" value={department} onChange={departmentChangeHandler} placeholder="Enter department" required/><br></br>
-        Designation:
-        <input type="text" value={designation} onChange={designationChangeHandler} placeholder="Enter designation" required/><br></br>
-        Gender:
-        <input type="text" value={gender} onChange={genderChangeHandler} placeholder="Enter gender" required/><br></br>
-        Date of Birth:
-        <input type="date" value={dateofbirth} onChange={dateofbirthChangeHandler} placeholder="Enter Date of Birth" required/><br></br>
-        Date of Joining:
-        <input type="date" value={dateofjoining} onChange={dateofjoiningChangeHandler} placeholder="Enter Date of Joining" required/><br></br>
-        Enter Password:
-        <input type="password" value={password} onChange={passwordChangeHandler} placeholder="Enter Password" required/><br></br>
-        <br></br>
-        <button type='submit'>Add Employee</button>
+        <h2 className="title">Edit Employee</h2>
+
+
+
+        <div className='input-field'>
+          <i className="fas fa-user">
+            <FaUser style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={employeeName} onChange={employeeNameChangeHandler} placeholder="Employee Name" required /></div>
+
+        <div className='input-field'>
+          <i className="fas fa-desktop">
+            <FaDesktop style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={department} onChange={departmentChangeHandler} placeholder="Department" required /></div>
+
+
+        <div className='input-field'>
+          <i className="fas fa-deskpro">
+            <FaDeskpro style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={designation} onChange={designationChangeHandler} placeholder="Designation" required /></div>
+        <div className='input-field'>
+          <i className="fas fa-male">
+            <FaMale style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={gender} onChange={genderChangeHandler} placeholder="Gender" required /></div>
+        <div className='input-field'>
+          <i className="fas fa-calendar">
+            <FaCalendar style={{ color: "#121212" }} />
+          </i>
+          <input type="date" value={dateofbirth} onChange={dateofbirthChangeHandler} placeholder="Date of Birth" required /></div>
+        <div className='input-field'>
+          <i className="fas fa-calendar">
+            <FaCalendar style={{ color: "#121212" }} />
+          </i>
+          <input type="date" value={dateofjoining} onChange={dateofjoiningChangeHandler} placeholder="Date of Joining" required /></div>
+        <div className='input-field'>
+          <i className="fas fa-lock">
+            <FaLock style={{ color: "#121212" }} />
+          </i>
+          <input type="password" value={password} onChange={passwordChangeHandler} placeholder="Password" required /></div>
+
+        <button type='submit' className="btn solid">Add Employee</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' onClick={()=>cancelHandler()}>Cancel</button> 
+        <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
+
       </form>
 
-    
-    
-    );
+    </div>
+
+  );
 }
 export default Edit;
