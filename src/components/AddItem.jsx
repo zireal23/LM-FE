@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaTransgender, FaGenderless, FaMale, FaCalendar, FaSitemap } from "react-icons/fa";
 
 function AddItems() {
     const navigate = useNavigate();
@@ -64,7 +65,7 @@ function AddItems() {
     const handleItemValueChange = (e) => {
         setItemValuation(e.target.value);
     };
-    
+
     const handleItemIdChange = (e) => {
         setItemId(e.target.value);
     };
@@ -74,48 +75,62 @@ function AddItems() {
     };
 
     return (
-        <div className="container">
-            <h1 className="mb-4">Add Item</h1>
-            <div className="form-container">
-                
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Item ID: <input type="text" name="name" onChange={handleItemIdChange}/>
-                    </label>
-                    <div className="form-group">
-                        <label htmlFor="itemCategory">Item Category : </label>
-                        <input type="text" name="name" onChange={handleItemCategoryChange}/>
-                    </div>
 
-                    <label>
-                        Item Description: <input type="text" name="name" onChange={handleItemDescriptionChange}/>
-                    </label>
 
-                    <label>
-                        Item Value: <input type="text" name="name" onChange={handleItemValueChange}/>
-                    </label>
+        <div className='addEmployee'>
 
-                    <label>
-                        Issue Status:
-                        <select name="itemStatus" onChange={handleItemStatusChange}>
-                            <option value="">Select</option>
-                            <option value="Y">Y</option>
-                            <option value="N">N</option>
+            <form onSubmit={handleSubmit}>
+
+                <h2 className="title">Add Item</h2>
+
+                <div className='input-field'>
+                    <i className="fas fa-id-card-o">
+                        <FaIdCard style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemIdChange} placeholder="Item ID" required />
+                </div>
+
+                <div className='input-field'>
+                    <i className="fas fa-user">
+                        <FaUser style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemCategoryChange} placeholder="Item Category" required /></div>
+
+                <div className='input-field'>
+                    <i className="fas fa-desktop">
+                        <FaDesktop style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemDescriptionChange} placeholder="Item Description" required /></div>
+
+
+                <div className='input-field'>
+                    <i className="fas fa-deskpro">
+                        <FaDeskpro style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemValueChange} placeholder="Item Value" required /></div>
+                <div className='input-field'>
+                    <i className="fas fa-deskpro">
+                        <FaDeskpro style={{ color: "#121212" }} />
+                    </i>
+                    <select name="itemStatus" onChange={handleItemStatusChange} placeholder="Gender" >
+
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
                         </select>
-                    </label>
+                </div>
+                <div className='input-field'>
+                    <i className="fas fa-calendar">
+                        <FaCalendar style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemMakeChange} placeholder="Item Make" required /></div>
 
-                    <div className="form-group">
-                        <label htmlFor="itemMake">Item Make : </label>
-                        <input type="text" name="name" onChange={handleItemMakeChange}/>
-                       
-                    </div>
 
-                    <button type="submit" className="btn btn-submit">
-                        Add Item
-                    </button>
-                </form>
-            </div>
+                <button type='submit' className="btn solid">Add Item</button>
+
+            </form>
+
         </div>
+
     );
 };
 
