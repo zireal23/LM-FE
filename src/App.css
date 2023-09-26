@@ -3,6 +3,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
+/* CSS for Nav */
+.navbar {
+  background-color: black;
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  width: 98.5%;
+  height: 40px;
+  font-size: 19px;
+  padding-top: 1.5%;
+  left: 0px;
+  font-weight: bold;
+}
+
+a{
+  padding-right: 15px;
+  color: white;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-section a {
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.right-section a {
+  font-weight: lighter;
+  text-decoration: none;
+}
+
+
+
+.navbar .active{
+  /* color: #666; */
+  text-decoration: none;
+  /* font-weight: lighter; */
+}
+
 :root {
   --text: #dcdee2;
   font-family: "Open Sans", sans-serif;
