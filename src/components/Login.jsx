@@ -10,6 +10,12 @@ const Login = () => {
   const baseURL = "http://localhost:7000/login";
   const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
+  // const [employeeName, setEmployeeName] = useState("");
+  // const [designation, setDesignation] = useState("");
+  // const [department, setdepartment] = useState("");
+  const employeeName = "";
+  const designation = "";
+  const department = "";
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,7 +52,13 @@ const Login = () => {
         // alert(response.data.employeeName);
         console.log(response.data);
         alert("Success!");
+
+        const {employeeName, designation, department, result} = response.data;
+        sessionStorage.setItem("employeeName", employeeName);
+        sessionStorage.setItem("designation", designation);
+        sessionStorage.setItem("department", department);
         sessionStorage.setItem("employeeID", employeeId);
+        
         navigate("/userdashboard");
       })
       .catch((error) => {

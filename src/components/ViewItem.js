@@ -8,8 +8,11 @@ import axios from "axios";
 
 const ViewItem = () => {
   const employeeID = sessionStorage.getItem("employeeID");
+  const employeeName = sessionStorage.getItem("employeeName");
+  const designation = sessionStorage.getItem("designation");
+  const department = sessionStorage.getItem("department");
   const navigate = useNavigate();
-  const baseURL = `http://localhost:7000/fetchItemsofUser?employeeId=${employeeID}`;
+  const baseURL = `http://localhost:7000/fetchItemsOfUser?employeeId=${employeeID}`;
   const [itemArray, setItemArray] = useState([]);
 
   // const setItemData = () => {
@@ -44,6 +47,10 @@ const ViewItem = () => {
         <div class="container">
           <div class="row">
             <div class="col-12">
+              <p>ID: {employeeID}</p>
+              <p>Name: {employeeName}</p>
+              <p>Designation: {designation}</p>
+              <p>Department: {department}</p>
               {itemArray.length === 0 ? (
                 <p>No items to be shown</p>
               ) : (<table class="table table-bordered table-striped">
