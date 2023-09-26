@@ -6,6 +6,9 @@ import "../App.css";
 function Loanapply() {
   const navigate = useNavigate();
   const employeeID = sessionStorage.getItem("employeeID");
+  const employeeName = sessionStorage.getItem("employeeName");
+  const designation = sessionStorage.getItem("designation");
+  const department = sessionStorage.getItem("department");
   const [itemCategoryArray, setItemCategoryArray] = useState([]);
   const [itemMakeArray, setItemMakeArray] = useState([]);
   const [itemArray, setItemArray] = useState([]);
@@ -75,6 +78,10 @@ function Loanapply() {
 
   return (
     <div className="container">
+      <p>ID: {employeeID}</p>
+      <p>Name: {employeeName}</p>
+      <p>Designation: {designation}</p>
+      <p>Department: {department}</p>
       <div className="form-container">
         <h1 className="mb-4">Select Product and Apply for Loan</h1>
         <form onSubmit={handleSubmit}>

@@ -2,6 +2,11 @@ import { NavLink } from 'react-router-dom';
 import '../App.css';
 
 const Navbar = () => {
+
+  const handleLogout = () => {
+    sessionStorage.clear(); 
+  };
+
     return (
       <nav className="navbar">
         <div className="navbar-container">
@@ -10,8 +15,7 @@ const Navbar = () => {
                 <a href="/">LoanLeLo</a>
           </div>
           <div className="right-section">
-            <a href="/">Login</a>
-            <a href="/">Signup</a>
+            <a href="/" onClick={handleLogout}>Logout</a>
           </div>
         </div>
       </nav>
