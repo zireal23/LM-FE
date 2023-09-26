@@ -3,8 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 //import editIcon from "./../assets/edit.png";
 //import deleteIcon from "./../assets/delete.JPG";
-import "../App.css";
-import "./ViewEmployees.css";
 
 
 const ViewEmployees= () => {
