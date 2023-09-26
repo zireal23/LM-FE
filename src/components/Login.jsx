@@ -11,12 +11,6 @@ const Login = () => {
   const adminLoginURL = "http://localhost:7000/login/loginadmin";
   const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
-  // const [employeeName, setEmployeeName] = useState("");
-  // const [designation, setDesignation] = useState("");
-  // const [department, setdepartment] = useState("");
-  const employeeName = "";
-  const designation = "";
-  const department = "";
   const navigate = useNavigate();
 
   useEffect(() => {

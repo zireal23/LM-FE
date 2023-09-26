@@ -29,18 +29,7 @@ const ViewItem = () => {
 
   return (
     <div class="card-body">
-      <br>
-      </br>
-      <nav>
-        <button
-          className="btn btn-primary nav-item active"
-          onClick={() => navigate("/create")}>
-          Create New Item
-        </button>
-      </nav>
-
-
-      <br></br>
+      
       <div className="col-md-6">
         <h4> Item</h4>
 
