@@ -10,7 +10,6 @@
   --ter: #4695bd;
   --accent: #27293d;
   --bg-color: #1e1e2f;
-
 }
 
 .e-grid {
@@ -595,8 +594,8 @@ form.sign-in-form {
   justify-content: space-around;
 }
 
-.data-panel-grid{
-  width:60%;
+.data-panel-grid {
+  width: 60%;
   background-color: #27293d;
   border-radius: 25px;
   padding-right: 1rem;
@@ -604,7 +603,7 @@ form.sign-in-form {
   justify-content: space-around;
 }
 
-.data-panel-chart{
+.data-panel-chart {
   width: 40%;
   display: flex;
   justify-content: center;
@@ -622,7 +621,7 @@ table {
   text-align: center;
 }
 
-.table-column{
+.table-column {
   margin-left: 2rem;
 }
 
@@ -643,3 +642,36 @@ table {
 
 .activity-panel{
 } */
+
+
+/* Error Page CSS */
+
+
+.errorpage {
+  background-color: var(--bg-color);
+  display: inline-flex;
+  height: 100vh;
+  width: 1000vh;
+ flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorpage h1{
+  opacity: 0.5;
+  font-size: 90px;
+}
+
+
+
+.naving{
+  border: 2px solid blanchedalmond;
+  color: black;
+  background-color: #04befe;
+  border-radius: 5%;
+  padding: 7px;
+}
+
+.naving:hover{
+  background-color: yellowgreen;
+}

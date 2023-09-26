@@ -21,6 +21,8 @@ import AddItem from "./components/AddItem";
 import LandingPage from "./components/LandingPage";
 
 import LoginTest from "./components/Login";
+import ErrorPage from "./components/ErrorPage";
+import ErrorInternal from "./components/ErrorInternal";
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
           <Route path="/deleteitems/:itemId" element={<DeleteItem />}></Route>
           <Route path="/additems" element={<AddItem />}></Route>
           <Route path="/login" element={<LoginTest />}></Route>
+          <Route path="/*" element={<ErrorPage />}></Route>
+          <Route path="/internal" element={<ErrorInternal />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
