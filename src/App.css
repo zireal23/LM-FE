@@ -7,7 +7,7 @@
 .navbar {
   background-color: black;
   padding: 3px;
-  position: sticky;
+  position: absolute;
   top: 0px;
   width: 98.5%;
   height: 40px;
@@ -205,6 +205,8 @@ body {
   top: 0;
   left: 0;
 }
+
+
 
 .signin-signup {
   position: absolute;
@@ -726,5 +728,24 @@ table {
 /* Add Employee CSS */
 
 .addEmployee{
-  background-color: var(--ter);
+  background-color: #15161b;
+  margin-top: 40px;
+}
+
+/* Admin Dashboard CSS */
+
+.admin-dashboard{
+
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background-color: var(--bg-color);
+  flex-wrap: wrap;
+
+}
+
+.del{
+  color: white;
+  margin-top: 35px;
 }

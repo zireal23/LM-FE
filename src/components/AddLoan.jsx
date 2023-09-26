@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaCashRegister , FaClock } from "react-icons/fa";
 
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
@@ -9,7 +10,7 @@ const AddLoan = () => {
   const baseURL = "http://localhost:7000/saveLoan";
   const [loanId, setLoanId] = useState('');
   const [loanType, setLoanType] = useState('');
-  const[duration,setDuration]=useState('');
+  const [duration, setDuration] = useState('');
 
 
   const loanIdChangeHandler = (event) => {
@@ -24,7 +25,7 @@ const AddLoan = () => {
   const durationChangeHandler = (event) => {
     setDuration(event.target.value);
   };
-  
+
 
   const submitActionHandler = (event) => {
     event.preventDefault();
@@ -32,48 +33,71 @@ const AddLoan = () => {
       .post(baseURL, {
         loanId: loanId,
         loanType: loanType,
-        duration:duration
+        duration: duration
       })
       .then((response) => {
-       // alert(response.data.employeeName);
-       console.log(response.data);
-        alert("Loan "+ loanType +" added!");
+        // alert(response.data.employeeName);
+        console.log(response.data);
+        alert("Loan " + loanType + " added!");
         navigate("/fetchloancard");
-        
+
       }).catch(error => {
-        alert("error==="+error);
+        alert("error===" + error);
       });
 
   };
 
-  const cancelHandler = () =>{
+  const cancelHandler = () => {
     //reset the values of input fields
     setLoanId('');
     setLoanType('');
     setDuration('');
-   // navigate("/read");
+    // navigate("/read");
 
   }
-    return(
-      
-      
+  return (
+
+
+
+
+    <div className='addEmployee'>
+
       <form onSubmit={submitActionHandler}>
-        
-            Loan ID:
-            <input type="text" value={loanId} onChange={loanIdChangeHandler} placeholder="Enter Loan ID" required/><br></br>
-        
-            Loan Type :
-        <input type="text" value={loanType} onChange={loanTypeChangeHandler} placeholder="Enter name" required/><br></br>
-        Duration:
-        <input type="text" value={duration} onChange={durationChangeHandler} placeholder="Enter department" required/><br></br>
-        <br></br>
-        <button type='submit'>Add Loan</button>
+        <h2 className="title">Add Loan</h2>
+
+
+
+        <div className='input-field'>
+          <i className="fas fa-cash-register">
+            <FaCashRegister style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={loanId} onChange={loanIdChangeHandler} placeholder="Loan ID" required /></div>
+
+
+        <div className='input-field'>
+          <i className="fas fa-cash-register">
+            <FaCashRegister style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={loanType} onChange={loanTypeChangeHandler} placeholder="Loan Type" required /></div>
+
+        <div className='input-field'>
+          <i className="fas fa-clock">
+            <FaClock style={{ color: "#121212" }} />
+          </i>
+          <input type="text" value={duration} onChange={durationChangeHandler} placeholder="Duration" required /></div>
+
+
+
+        <button type='submit' className="btn solid">Edit Loan</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' onClick={()=>cancelHandler()}>Cancel</button> 
+        <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
+
       </form>
 
-    
-    
-    );
+    </div>
+
+
+
+  );
 }
 export default AddLoan;
