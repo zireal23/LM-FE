@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaCashRegister , FaClock } from "react-icons/fa";
+import { FaCashRegister, FaClock } from "react-icons/fa";
+import { Toast, ToastContainer } from 'react-bootstrap';
 
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
@@ -12,6 +13,7 @@ const AddLoan = () => {
   const [loanType, setLoanType] = useState('');
   const [duration, setDuration] = useState('');
 
+  // const notify = () => toast("Success");
 
   const loanIdChangeHandler = (event) => {
     //alert(event.target.value);
@@ -27,6 +29,10 @@ const AddLoan = () => {
   };
 
 
+  const [showToastSuccess, setShowToastSuccess] = useState(false)
+  const [showToastFail, setShowToastFail] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
+
   const submitActionHandler = (event) => {
     event.preventDefault();
     axios
@@ -36,13 +42,15 @@ const AddLoan = () => {
         duration: duration
       })
       .then((response) => {
-        // alert(response.data.employeeName);
         console.log(response.data);
-        alert("Loan " + loanType + " added!");
-        navigate("/fetchloancard");
+        setShowToastSuccess(true)
+        setToastMessage("Loan added successfully")
+        // navigate("/fetchloancard");
 
       }).catch(error => {
-        alert("error===" + error);
+        // alert("error===" + error);
+        setShowToastFail(true)
+        setToastMessage("Loan addition failed");
       });
 
   };
@@ -71,7 +79,7 @@ const AddLoan = () => {
           <i className="fas fa-cash-register">
             <FaCashRegister style={{ color: "#121212" }} />
           </i>
-          <input type="text" value={loanId} onChange={loanIdChangeHandler} placeholder="Loan ID" required /></div>
+          <input type="number" value={loanId} onChange={loanIdChangeHandler} placeholder="Loan ID" required /></div>
 
 
         <div className='input-field'>
@@ -93,7 +101,19 @@ const AddLoan = () => {
         <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
 
       </form>
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
 
+        <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+
+        <Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
 
 

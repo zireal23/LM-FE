@@ -15,7 +15,8 @@ const ViewEmployees= () => {
     axios.get(baseURL ).then((response) => {
       setEmployees(response.data);
     }).catch(error => {
-      alert("Error Ocurred while loading data:" + error);
+      // alert("Error Ocurred while loading data:" + error);
+      navigate('/error');
     });
   }
 
