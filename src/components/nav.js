@@ -12,10 +12,10 @@ const Navbar = () => {
         <div className="navbar-container">
           <div className="left-section">
                {/* <NavLink to="/landingpage" activeClassName="active" inactiveClassName="inactive">LoanLeLo</NavLink> */}
-                <a href="/">LoanLeLo</a>
+                <a className='navLinks' href="/">LoanLeLo</a>
           </div>
           <div className="right-section">
-            <a href="/" onClick={handleLogout}>Logout</a>
+            <a className='navLinks' href="/" onClick={handleLogout}>Logout</a>
           </div>
         </div>
       </nav>

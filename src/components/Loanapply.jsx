@@ -77,22 +77,25 @@ function Loanapply() {
   };
 
   return (
-    <div className="container">
+    <div className="applyLoan">
+
+      <div className="aww">
       <p>ID: {employeeID}</p>
       <p>Name: {employeeName}</p>
       <p>Designation: {designation}</p>
       <p>Department: {department}</p>
-      <div className="form-container">
-        <h1 className="mb-4">Select Product and Apply for Loan</h1>
+      </div>
+      <div className="dww">
+        <h1 className="headw">Select Product and Apply for Loan</h1>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="footw">
             <label htmlFor="employeeId">Employee ID :</label>
             {employeeID}
           </div>
-          <div className="form-group">
-            <label htmlFor="itemCategory">Item Category : </label>
+          <div className="footw">
+            <div className="lol" htmlFor="itemCategory">Item Category : </div>
             <select
-              className="form-control"
+              className="opt"
               id="itemCategory"
               onChange={handleItemCategoryChange}
             >
@@ -110,10 +113,10 @@ function Loanapply() {
               <option value="Crockery">Crockery</option> */}
             </select>
           </div>
-          <div className="form-group">
-            <label htmlFor="itemMake">Item Make : </label>
+          <div className="footw">
+            <div className="lol" htmlFor="itemMake">Item Make : </div>
             <select
-              className="form-control"
+              className="opt"
               id="itemMake"
               onChange={handleItemMakeChange}
             >
@@ -129,10 +132,10 @@ function Loanapply() {
               })}
             </select>
           </div>
-          <div className="form-group">
-            <label htmlFor="itemDescription">Item Description : </label>
+          <div className="footw">
+            <div className="lol" htmlFor="itemDescription">Item Description : </div>
             <select
-              className="form-control"
+              className="opt"
               id="itemDescription"
               onChange={handleItemDescriptionChange}
             >
@@ -148,8 +151,8 @@ function Loanapply() {
               })}
             </select>
           </div>
-          <div className="form-group">
-            <label htmlFor="itemValuation">Item Value : </label>
+          <div className="footw">
+            <div className="lol" htmlFor="itemValuation">Item Value : </div>
             {itemValuation}
           </div>
 

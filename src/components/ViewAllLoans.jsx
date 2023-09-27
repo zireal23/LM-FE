@@ -43,9 +43,32 @@ const ViewAllLoans = () => {
                       <th scope="col">Delete</th>
                     </tr>
                   </thead>
+                  {/* <tbody>
+                    
+                      <tr className='viewAllLoansTableContents'>
+                        <td>001</td>
+                        <td>Furniture</td>
+                        <td>3</td>  
+                        <td>Edit</td>
+                        <td>Delete</td>    
+                      </tr>
+                    
+                  </tbody> */}
+
+                  {/* <tbody>
+                    
+                      <tr>
+                        <td>001</td>
+                        <td>Furniture</td>
+                        <td>3</td>  
+                        <td>Edit</td>
+                        <td>Delete</td>    
+                      </tr>
+                    
+                  </tbody> */}
                   <tbody>
                     {loanArray.map((loanItem, index) => (
-                      <tr key={index}>
+                      <tr className='viewAllLoansTableContents' key={index}>
                         <td>{loanItem.loanId}</td>
                         <td>{loanItem.loanType}</td>
                         <td>{loanItem.duration}</td>  
@@ -58,10 +81,13 @@ const ViewAllLoans = () => {
                   </tbody>
                 </table>
               )}
-              <button
-                onClick={() => navigate("/addloan")}>
-                Create New Loan
-              </button>
+              <div className='viewAllLoansButtonDiv'>
+                <button className='viewAllLoansButton'
+                  onClick={() => navigate("/addloan")}>
+                  Create New Loan
+                </button>
+              </div>
+              
             </div>
           </div>
         </div>
