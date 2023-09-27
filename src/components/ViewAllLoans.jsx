@@ -80,8 +80,8 @@ const ViewAllLoans = () => {
                   </tbody>
                 </table>
               )}
-              <div id='viewAllLoansButtonDiv'>
-                <button id='viewAllLoansButton'
+              <div className='viewAllLoansButtonDiv'>
+                <button className='viewAllLoansButton'
                   onClick={() => navigate("/addloan")}>
                   Create New Loan
                 </button>

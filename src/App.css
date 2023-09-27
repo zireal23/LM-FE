@@ -774,7 +774,7 @@ table {
   align-items: center;
 }
 
-#viewAllLoansButton {
+.viewAllLoansButton {
   margin-top: 30px;
   margin-left: 44.5%;
   padding: '30px 50px';
@@ -788,7 +788,7 @@ table {
   border-radius: 100px;
 }
 
-#viewAllLoansButtonDiv{
+.viewAllLoansButtonDiv{
   align-items: center;
 }
 
