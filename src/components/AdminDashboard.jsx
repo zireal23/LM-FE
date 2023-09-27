@@ -1,6 +1,8 @@
 import React from "react";
 // import "./AdminDashboard.css";
 import { useNavigate } from "react-router-dom";
+
+
 function AdminDashboard() {
   const navigate = useNavigate();
   const handleViewEmployees = () => {
@@ -13,7 +15,6 @@ function AdminDashboard() {
     navigate("/viewitems");
   };
   //const employeeID = sessionStorage.getItem("employeeID");
-
   return (
     <div className="admin-dashboard">
       <h1>Admin Dashboard</h1>

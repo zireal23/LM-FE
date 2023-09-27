@@ -17,7 +17,8 @@ const ViewAllLoans = () => {
       setLoanArray(response.data);
       console.log(response.data);
     }).catch(error => {
-      alert("Error Occurred while loading data: " + error);
+      // alert("Error Occurred while loading data: " + error);
+      navigate('/error');
     });
   }, []);
 
