@@ -62,7 +62,7 @@ const ViewEmployees= () => {
                   
                   employees.map((employee, index) => (
 
-                    <tr>
+                    <tr className='viewAllLoansTableContents'>
                       <th scope="row">{employee.employeeId}</th>
 
                       <td>{employee.dateofbirth}</td>
@@ -87,10 +87,12 @@ const ViewEmployees= () => {
 
               </tbody>
             </table>)}
-
-              <button onClick={() => navigate("/create")}>
-                Create New Employee
+            <div className='viewAllLoansButtonDiv'>
+              <button className='viewAllLoansButton' onClick={() => navigate("/create")}>
+                  Create New Employee
               </button>
+            </div>
+              
 
             </div>
           </div>
