@@ -45,7 +45,7 @@ const ViewAllItems = () => {
                 </thead>
                 <tbody>
                   {itemArray.map((item, index) => (
-                    <tr key={index}>
+                    <tr className='viewAllLoansTableContents' key={index}>
                       <td>{item.itemId}</td>
                       <td>{item.itemDescription}</td>
                       <td>{item.itemMake}</td>
@@ -68,11 +68,13 @@ const ViewAllItems = () => {
                   </option>
                 ))}
               </select> */}
-
-        <button
-          onClick={() => navigate("/additem")}>
-          Create New Item
-        </button>
+        <div className='viewAllLoansButtonDiv'>
+          <button className='viewAllLoansButton'
+            onClick={() => navigate("/additem")}>
+            Create New Item
+          </button>
+        </div>
+        
             </div>
           </div>
         </div>
