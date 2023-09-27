@@ -21,6 +21,7 @@ import DeleteItem from './components/DeleteItem';
 import AddItem from './components/AddItem';
 import Navbar from './components/nav';
 import ErrorPage from './components/ErrorPage';
+import ErrorInternal from './components/ErrorInternal'
 
 function App() {
   return (
@@ -35,7 +36,6 @@ function App() {
       <Route path="/applyLoan" element={<Loanapply/>}></Route>
       <Route path="/itemfetch" element={<ViewItem/>}></Route>
       <Route path="/admindashboard" element={<AdminDashboard/>}/>
-
       <Route path="/viewemployees" element={<ViewEmployees/>}></Route>
       <Route path="/fetchloancard" element={<ViewAllLoans/>}></Route>
       <Route path="/edit/:employeeId" element={<Edit/>}></Route>
@@ -49,7 +49,7 @@ function App() {
       <Route path="/deleteitems/:itemId" element={<DeleteItem/>}></Route>
       <Route path="/additems" element={<AddItem/>}></Route>
       <Route path='/*' element={<ErrorPage/>}></Route>
-
+      <Route path='/error' element={<ErrorInternal/>}></Route>
   
     </Routes>
     </BrowserRouter>

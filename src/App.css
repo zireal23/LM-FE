@@ -731,6 +731,7 @@ table {
 .addEmployee{
   background-color: #15161b;
   margin-top: 40px;
+  height: 100vh;
 }
 
 /* Admin Dashboard CSS */
@@ -742,7 +743,8 @@ table {
   height: 100vh;
   align-items: center;
   background-color: var(--bg-color);
-  flex-wrap: wrap;
+ flex-direction: column;
+ color: white;
 
 }
 
@@ -785,6 +787,7 @@ font-size: 40px;
 
 .lol{
   padding-bottom: 3px;
+};
 
 /* CSS for ViewAllLoans */
 
