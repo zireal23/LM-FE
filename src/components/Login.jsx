@@ -47,15 +47,22 @@ const Login = () => {
       .then((response) => {
         // alert(response.data.employeeName);
         console.log(response.data);
-        alert("Success!");
+        
 
         const {employeeName, designation, department, result} = response.data;
-        sessionStorage.setItem("employeeName", employeeName);
-        sessionStorage.setItem("designation", designation);
-        sessionStorage.setItem("department", department);
-        sessionStorage.setItem("employeeID", employeeId);
+        if(result === "Login Successful"){
+          alert("Success!");
+          sessionStorage.setItem("employeeName", employeeName);
+          sessionStorage.setItem("designation", designation);
+          sessionStorage.setItem("department", department);
+          sessionStorage.setItem("employeeID", employeeId);
+          navigate("/userdashboard");
+        }
+        else{
+          alert("Failed");
+        }
         
-        navigate("/userdashboard");
+        
       })
       .catch((error) => {
         alert("Failed");
@@ -73,9 +80,20 @@ const Login = () => {
       .then((response) => {
         // alert(response.data.employeeName);
         console.log(response.data);
-        alert("Success!");
+              
+        const {employeeName, designation, department, result} = response.data;
         sessionStorage.setItem("employeeID", employeeId);
-        navigate("/admindashboard");
+        if(result === "Login Successful"){
+          alert("Success!");
+          sessionStorage.setItem("employeeName", employeeName);
+          sessionStorage.setItem("designation", designation);
+          sessionStorage.setItem("department", department);
+          sessionStorage.setItem("employeeID", employeeId);
+          navigate("/admindashboard");
+        }
+        else{
+          alert("Failed");
+        }
       })
       .catch((error) => {
         alert("Failed");
