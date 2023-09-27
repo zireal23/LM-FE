@@ -749,3 +749,39 @@ table {
   color: white;
   margin-top: 35px;
 }
+
+/* CSS FOR APPLY LOAN */
+
+.applyLoan{
+  margin-top: 63px;
+  background-color: var(--bg-color);
+  height: 100vh;
+}
+
+.aww{
+  display: flex;
+  justify-content: space-evenly;
+  color: var(--text);
+}
+
+.headw{
+color: var(--text);
+text-align: center;
+font-size: 40px;
+}
+
+.footw{
+  color: var(--text);
+  padding: 10px;
+  text-align: center;
+}
+
+.opt{
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.lol{
+  padding-bottom: 3px;
+}
