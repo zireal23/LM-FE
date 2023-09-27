@@ -761,20 +761,30 @@ table {
   height: 100vh;
 }
 
+.dww{
+  border: 2px solid white;
+  width: fit-content;
+  margin:auto;
+  border-radius: 10px;
+  background-color: rgb(218, 212, 212);
+ 
+}
 .aww{
   display: flex;
   justify-content: space-evenly;
   color: var(--text);
+  font-size: 20px;
 }
 
 .headw{
 color: var(--text);
 text-align: center;
-font-size: 40px;
+font-size: 35px;
+margin-top: 7px;
 }
 
 .footw{
-  color: var(--text);
+  color: var(--secondary);
   padding: 10px;
   text-align: center;
 }
