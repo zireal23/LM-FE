@@ -15,7 +15,8 @@ const ViewAdminItems= () => {
     axios.get(baseURL ).then((response) => {
       setItems(response.data);
     }).catch(error => {
-      alert("Error Ocurred while loading data:" + error);
+      // alert("Error Ocurred while loading data:" + error);
+      navigate('/error');
     });
   }
 
