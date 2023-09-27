@@ -747,6 +747,15 @@ table {
  color: white;
 
 }
+.user-dashboard{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background-color: var(--bg-color);
+ flex-direction: column;
+ color: white;
+}
 
 .del{
   color: white;
@@ -787,7 +796,7 @@ font-size: 40px;
 
 .lol{
   padding-bottom: 3px;
-};
+}
 
 /* CSS for ViewAllLoans */
 
