@@ -23,7 +23,8 @@ const ViewItem = () => {
     axios.get(baseURL ).then((response) => {
       setItemArray(response.data);
     }).catch(error => {
-      alert("Error Ocurred while loading data:" + error);
+      // alert("Error Ocurred while loading data:" + error);
+      navigate('/error');
     });
   }, []);
 
