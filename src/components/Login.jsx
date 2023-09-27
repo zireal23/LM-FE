@@ -81,19 +81,21 @@ const Login = () => {
         // alert(response.data.employeeName);
         console.log(response.data);
               
-        const {employeeName, designation, department, result} = response.data;
+        // const {employeeName, designation, department, result} = response.data;
         sessionStorage.setItem("employeeID", employeeId);
-        if(result === "Login Successful"){
-          alert("Success!");
-          sessionStorage.setItem("employeeName", employeeName);
-          sessionStorage.setItem("designation", designation);
-          sessionStorage.setItem("department", department);
-          sessionStorage.setItem("employeeID", employeeId);
+        // if(result === "Login Successful"){
+          
+        // }
+        alert("Success!");
+          // sessionStorage.setItem("employeeName", employeeName);
+          // sessionStorage.setItem("designation", designation);
+          // sessionStorage.setItem("department", department);
+          // sessionStorage.setItem("employeeID", employeeId);
           navigate("/admindashboard");
-        }
-        else{
-          alert("Failed");
-        }
+
+        // else{
+        //   alert("Failed");
+        // }
       })
       .catch((error) => {
         alert("Failed");
