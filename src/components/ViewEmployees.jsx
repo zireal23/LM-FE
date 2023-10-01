@@ -34,9 +34,9 @@ const ViewEmployees= () => {
 
       <br></br>
       <div className="col-md-6">
-      
-        <h4>Employees List</h4>
-
+      <div className='employee-view'>
+        <h3 >Employees List</h3>
+        </div>
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -63,7 +63,7 @@ const ViewEmployees= () => {
                   
                   employees.map((employee, index) => (
 
-                    <tr>
+                    <tr className='viewAllLoansTableContents'>
                       <th scope="row">{employee.employeeId}</th>
 
                       <td>{employee.dateofbirth}</td>
@@ -74,12 +74,11 @@ const ViewEmployees= () => {
                       <td>{employee.gender}</td>
 
                       
-                      
-                      <td><Link to={`/edit/${employee.employeeId}` }>Edit
+                      <td><Link to={`/edit/${employee.employeeId}`} className='edit-link' >Edit
                       </Link></td>
                       
-                      <td><Link to={`/delete/${employee.employeeId}`}>Delete
-                      </Link></td>
+                      <td><Link to={`/delete/${employee.employeeId}`} className='delete-link'>Delete
+                      </Link></td>                      
 
                     </tr>
 
@@ -88,10 +87,12 @@ const ViewEmployees= () => {
 
               </tbody>
             </table>)}
-
-              <button onClick={() => navigate("/create")}>
-                Create New Employee
+            <div className='viewAllLoansButtonDiv'>
+              <button className='viewAllLoansButton' onClick={() => navigate("/create")}>
+                  Create New Employee
               </button>
+            </div>
+              
 
             </div>
           </div>

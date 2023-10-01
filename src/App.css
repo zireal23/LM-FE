@@ -28,6 +28,30 @@
   justify-content: space-between;
   align-items: center;
 }
+.edit-link
+{
+  color: white;
+  transition: color 0.2s;
+}
+.edit-link:hover{
+  color: blue;
+}
+.delete-link
+{
+  color: white;
+  transition: color 0.2s;
+
+}
+.delete-link:hover{
+  color: blue;
+}
+.employee-view{
+  color: rgb(31, 31, 145);
+  display: grid;
+  place-items: center; 
+  margin-top: 10px;
+           
+}
 
 .left-section a {
   margin-right: 10px;
@@ -243,7 +267,7 @@ form.sign-in-form {
 }
 
 .title {
-  font-size: 2.2rem;
+  font-size: 2.0rem;
   color: var(--text);
   margin-bottom: 10px;
 }
@@ -562,9 +586,9 @@ form.sign-in-form {
 }
 
 @media (max-width: 570px) {
-  form {
+  /* form {
     padding: 0 1.5rem;
-  }
+  } */
 
   .image {
     display: none;
@@ -770,20 +794,30 @@ table {
   height: 100vh;
 }
 
+.dww{
+  border: 2px solid white;
+  width: fit-content;
+  margin:auto;
+  border-radius: 10px;
+  background-color: rgb(218, 212, 212);
+ 
+}
 .aww{
   display: flex;
   justify-content: space-evenly;
   color: var(--text);
+  font-size: 20px;
 }
 
 .headw{
 color: var(--text);
 text-align: center;
-font-size: 40px;
+font-size: 35px;
+margin-top: 7px;
 }
 
 .footw{
-  color: var(--text);
+  color: var(--secondary);
   padding: 10px;
   text-align: center;
 }
@@ -824,9 +858,10 @@ font-size: 40px;
   margin-top: 30px;
   margin-left: 44.5%;
   padding: '30px 50px';
-  height: 40px;
-  width: 140px;
-  background-color: '#007BFF';
+  
+  height: 60px;
+  width: 160px;
+  background-color:'#007BFF';
   color: '#fff';
   border: 'none';
   cursor: 'pointer';

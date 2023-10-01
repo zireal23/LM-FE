@@ -79,6 +79,8 @@ function Loanapply() {
   return (
     <div className="applyLoan">
 
+<h1 className="headw">Select Product and Apply for Loan</h1>
+
       <div className="aww">
       <p>ID: {employeeID}</p>
       <p>Name: {employeeName}</p>
@@ -86,7 +88,7 @@ function Loanapply() {
       <p>Department: {department}</p>
       </div>
       <div className="dww">
-        <h1 className="headw">Select Product and Apply for Loan</h1>
+        {/* <h1 className="headw">Select Product and Apply for Loan</h1> */}
         <form onSubmit={handleSubmit}>
           <div className="footw">
             <label htmlFor="employeeId">Employee ID :</label>

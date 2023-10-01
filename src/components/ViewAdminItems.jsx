@@ -39,7 +39,9 @@ const ViewAdminItems= () => {
 
       <br></br>
       <div className="col-md-6">
-        <h4>Item List</h4>
+      <div className='employee-view'>
+        <h3 >Items List</h3>
+        </div>
 
         <div class="container">
           <div class="row">
@@ -76,9 +78,9 @@ const ViewAdminItems= () => {
                         <td>{items.itemStatus}</td>
                         <td>{items.itemValuation}</td>
                         
-                        <td><Link to={"/edititems/" +items.itemId}>Edit
+                        <td><Link to={"/edititems/" +items.itemId}className='edit-link'>Edit
                         </Link></td>
-                        <td><Link to={"/deleteitems/" + items.itemId}>Delete
+                        <td><Link to={"/deleteitems/" + items.itemId} className='delete-link'>Delete
                         </Link></td>
                       </tr>
 
@@ -87,11 +89,12 @@ const ViewAdminItems= () => {
 
                 </tbody>
               </table>)}
-
-              <button
-                onClick={() => navigate("/additems")}>
-                Create New Item
+              <div className='viewAllLoansButtonDiv'>
+              <button className='viewAllLoansButton' onClick={() => navigate("/additems")}>
+                  Create New Item
               </button>
+            </div>
+              
               
 
             </div>
