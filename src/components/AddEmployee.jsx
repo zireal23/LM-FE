@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaMale, FaCalendar } from 'react-icons/fa';
-import { ToastContainer } from 'react-toastify';
-import { Toast } from 'react-bootstrap';
+import { Toast, ToastContainer } from 'react-bootstrap';
 
 const AddEmployee = () => {
   const navigate = useNavigate();
@@ -122,7 +121,7 @@ const AddEmployee = () => {
         })
         .then((response) => {
           console.log(response.data);
-          alert('Employee ' + employeeName + ' added!');
+          // alert('Employee ' + employeeName + ' added!');
           setShowToastSuccess(true)
           setToastMessage("Employee added successfully")
           navigate('/viewemployees');

@@ -3,6 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
+
+html{
+  background-color: black;
+}
+
 /* CSS for Nav */
 .navbar {
   background-color: black;
@@ -224,6 +229,7 @@ body {
   min-height: 100vh;
   color: var(--text);
   overflow: hidden;
+  margin-top: 30px;
 }
 
 .forms-container {
@@ -689,10 +695,13 @@ form.sign-in-form {
 
 table {
   table-layout: fixed;
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
-  margin: 1rem 0rem 0rem 0rem;
+  margin: auto;
   text-align: center;
+  display: block !important;
+  overflow-x: auto !important;
+  width: 100% !important;
 }
 
 .table-column {
