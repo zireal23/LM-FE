@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaMale, FaCalendar } from 'react-icons/fa';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { Toast } from 'react-bootstrap';
 
 const AddEmployee = () => {
   const navigate = useNavigate();
