@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaMale, FaCalendar } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddEmployee = () => {
   const navigate = useNavigate();
@@ -15,6 +16,10 @@ const AddEmployee = () => {
   const [dateofjoining, setDateofjoining] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const [duration, setDuration] = useState('');
+  const [showToastSuccess, setShowToastSuccess] = useState(false)
+  const [showToastFail, setShowToastFail] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
 
   const validateForm = () => {
     let isValid = true;
@@ -75,6 +80,9 @@ const AddEmployee = () => {
   const departmentChangeHandler = (event) => {
     setDepartment(event.target.value);
   };
+  const durationChangeHandler = (event) => {
+    setDuration(event.target.value);
+  };
 
   const designationChangeHandler = (event) => {
     setDesignation(event.target.value);
@@ -114,10 +122,13 @@ const AddEmployee = () => {
         .then((response) => {
           console.log(response.data);
           alert('Employee ' + employeeName + ' added!');
+          setShowToastSuccess(true)
+          setToastMessage("Employee added successfully")
           navigate('/viewemployees');
         })
         .catch((error) => {
-          alert('error===' + error);
+          setShowToastFail(true);
+          setToastMessage("Employee addition failed");
         });
     } 
   };
@@ -228,6 +239,19 @@ const AddEmployee = () => {
           Cancel
         </button>
       </form>
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+
+        <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+
+        <Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 };

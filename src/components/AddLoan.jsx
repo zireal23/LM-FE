@@ -13,6 +13,9 @@ const AddLoan = () => {
   const [loanId, setLoanId] = useState('');
   const [loanType, setLoanType] = useState('');
   const [duration, setDuration] = useState('');
+  const [showToastSuccess, setShowToastSuccess] = useState(false)
+  const [showToastFail, setShowToastFail] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
 
   // const notify = () => toast("Success");
 
@@ -30,9 +33,7 @@ const AddLoan = () => {
   };
 
 
-  const [showToastSuccess, setShowToastSuccess] = useState(false)
-  const [showToastFail, setShowToastFail] = useState(false)
-  const [toastMessage, setToastMessage] = useState('')
+ 
 
   const submitActionHandler = (event) => {
     event.preventDefault();
