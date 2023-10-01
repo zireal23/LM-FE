@@ -86,6 +86,10 @@
   font-family: "Open Sans";
 }
 
+.noItemsToView{
+  text-align: center;
+}
+
 .App {
   display: flex;
   flex-direction: row;

@@ -31,7 +31,7 @@ const ViewAllLoans = () => {
           <div className="row">
             <div className="col-12">
             {loanArray.length === 0 ? (
-                <p>No loans to be shown</p>
+                <p className='noItemsToView'>No loans to be shown</p>
               ) : (
                 <table className="table table-bordered table-striped">
                   <thead>
