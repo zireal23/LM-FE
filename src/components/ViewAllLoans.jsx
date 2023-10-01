@@ -72,7 +72,7 @@ const ViewAllLoans = () => {
                         <td>{loanItem.loanId}</td>
                         <td>{loanItem.loanType}</td>
                         <td>{loanItem.duration}</td>  
-                        <td><Link to={`/editloan/${loanItem.loanId}` } className='edit-link'>Edit
+                        <td><Link to={`/editloan/${loanItem.loanId}/${loanItem.loanType}` }>Edit
                           </Link></td>
                         <td><Link to={`/deleteloan/${loanItem.loanId}`} className='delete-link'>Delete
                           </Link></td>    

@@ -97,7 +97,7 @@ const AddLoan = () => {
 
 
 
-        <button type='submit' className="btn solid">Edit Loan</button>
+        <button type='submit' className="btn solid">Add Loan</button>
         &nbsp;&nbsp;&nbsp;
         <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
 

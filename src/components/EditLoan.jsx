@@ -9,13 +9,13 @@ import "../App.css";
 const EditLoan = () => {
   const navigate = useNavigate();
   const baseURL = "http://localhost:7000/editloanbyid";
-  const { loanId } = useParams();
-  const [loanType, setLoanType] = useState('');
+  const { loanId, loanType } = useParams();
+  
   const[duration,setDuration]=useState('');
 
 
   const loanTypeChangeHandler = (event) => {
-    setLoanType(event.target.value);
+  
   };
 
   const durationChangeHandler = (event) => {
@@ -48,7 +48,7 @@ const EditLoan = () => {
 
   const cancelHandler = () =>{
     //reset the values of input fields
-    setLoanType('');
+
     setDuration('');
    // navigate("/read");
 
@@ -67,7 +67,7 @@ const EditLoan = () => {
           <i className="fas fa-cash-register">
             <FaCashRegister style={{ color: "#121212" }} />
           </i>
-          <input type="text" value={loanType} onChange={loanTypeChangeHandler} placeholder="Loan Type" required /></div>
+          <input type="text" value={loanType} onChange={loanTypeChangeHandler} placeholder={loanType} required readOnly /></div>
 
         <div className='input-field'>
           <i className="fas fa-clock">

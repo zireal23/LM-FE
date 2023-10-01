@@ -38,7 +38,7 @@ function App() {
       <Route path="/viewemployees" element={<ViewEmployees/>}></Route>
       <Route path="/fetchloancard" element={<ViewAllLoans/>}></Route>
       <Route path="/edit/:employeeId" element={<Edit/>}></Route>
-      <Route path="/editloan/:loanId" element={<EditLoan/>}></Route>
+      <Route path="/editloan/:loanId/:loanType" element={<EditLoan/>}></Route>
       <Route path="/delete/:employeeId" element={<Delete/>}></Route>
       <Route path="/deleteloan/:loanId" element={<DeleteLoan/>}></Route>
       <Route path="/addloan" element={<AddLoan/>}></Route>
