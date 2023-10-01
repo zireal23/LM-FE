@@ -47,7 +47,7 @@ const ViewAdminItems= () => {
           <div class="row">
             <div class="col-12">
               {items.length === 0 ? (
-                <p>No items to be shown</p>
+                <p className='noItemsToView'>No items to be shown</p>
               ) : (<table class="table table-bordered table-striped">
                 <thead>
                   <tr>

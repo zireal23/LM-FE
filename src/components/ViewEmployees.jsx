@@ -41,7 +41,7 @@ const ViewEmployees= () => {
           <div class="row">
             <div class="col-12">
             {employees.length === 0 ? (
-                <p>No employees to be shown</p>
+                <p className='noItemsToView'>No employees to be shown</p>
               ) : (<table class="table table-bordered table-striped">
               <thead>
                 <tr>
