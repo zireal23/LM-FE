@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaMale, FaCalendar } from 'react-icons/fa';
-import { ToastContainer } from 'react-toastify';
-import { Toast } from 'react-bootstrap';
+import { ToastContainer, Toast } from 'react-bootstrap';
+import { toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddEmployee = () => {
   const navigate = useNavigate();
@@ -20,76 +22,90 @@ const AddEmployee = () => {
   const [duration, setDuration] = useState('');
   const [showToastSuccess, setShowToastSuccess] = useState(false)
   const [showToastFail, setShowToastFail] = useState(false)
-  const [toastMessage, setToastMessage] = useState('')
+  const [toastMessage, setToastMessage] = useState('');
+  const hasNumber = /\d/; 
 
-  const validateForm = () => {
-    let isValid = true;
-    const newErrors = {};
+//   const validateForm = () => {
+//     let isValid = true;
+//     const newErrors = {};
 
-    if (!employeeId) {
-      newErrors.employeeId = 'Employee ID is required';
-      isValid = false;
-    }
+//     if(employeeName&&/\d/.test(employeeName)){
+//       isValid = false;
+//       setShowToastFail(false);
+//       setToastMessage("Employee Name cannot have numbers and special characters");
+//   }
 
-    if(employeeName&&/\d/.test(employeeName)){
-      isValid = false;
-      newErrors.employeeName = "EmployeeName cannot have number or special characters"
-  }
+//     if(department&&/\d/.test(department)){
+//         isValid = false;
+//         setShowToastFail(false);
+//         setToastMessage("Department cannot have numbers and special characters");
+//     }
 
-    if(department&&/\d/.test(department)){
-        isValid = false;
-        newErrors.department = "Department cannot have number or special characters"
-    }
+//     if(designation&&/\d/.test(designation)){
+//       isValid = false;
+//       setShowToastFail(false);
+//       setToastMessage("Designation cannot have numbers and special characters");
+//   }
 
-    if(designation&&/\d/.test(designation)){
-      isValid = false;
-      newErrors.designation = "Designation cannot have number or special characters"
-  }
+//   if((gender&&/\d/.test(gender))||gender.length>1){
+//     isValid = false;
+//     setShowToastFail(false);
+//     setToastMessage("Gender cannot have numbers and special characters and should have only one character");
+// }
 
-  if((gender&&/\d/.test(gender))||gender.length>1){
-    isValid = false;
-    newErrors.gender = "Gender cannot have number or special characters and should be of one character only"
-}
 
-    if (!dateofbirth) {
-      newErrors.dateofbirth = 'Date of Birth is required';
-      isValid = false;
-    }
+//     if (!password) {
+//       newErrors.password = 'Password is required';
+//       isValid = false;
+//     }
 
-    if (!dateofjoining) {
-      newErrors.dateofjoining = 'Date of Joining is required';
-      isValid = false;
-    }
+//     setErrors(newErrors);
+//     return isValid;
+//   };
 
-    if (!password) {
-      newErrors.password = 'Password is required';
-      isValid = false;
-    }
 
-    setErrors(newErrors);
-    return isValid;
-  };
 
   const employeeIdChangeHandler = (event) => {
     setId(event.target.value);
   };
 
   const employeeNameChangeHandler = (event) => {
+    if(hasNumber.test(event.target.value)){
+      setShowToastFail(true);
+      console.log("This string has numbers");
+      setToastMessage("Employee Name cannot have numbers and special characters")
+      
+    }
     setEmployeeName(event.target.value);
   };
 
   const departmentChangeHandler = (event) => {
+    if(hasNumber.test(event.target.value)){
+      setShowToastFail(true);
+      setToastMessage("Department cannot have numbers and special characters")
+    }
     setDepartment(event.target.value);
   };
   const durationChangeHandler = (event) => {
+    
     setDuration(event.target.value);
   };
 
   const designationChangeHandler = (event) => {
+    if(hasNumber.test(event.target.value)){
+      setShowToastFail(true);
+      setToastMessage("Designation cannot have numbers and special characters")
+    }
     setDesignation(event.target.value);
   };
 
   const genderChangeHandler = (event) => {
+    const genderUser = event.target.value;
+    if(hasNumber.test(genderUser)||genderUser.length>1){
+      console.log(genderUser.length)
+      setShowToastFail(true);
+      setToastMessage("Gender cannot have numbers and special characters and not more than 1 character");
+    }
     setGender(event.target.value);
   };
 
@@ -107,8 +123,6 @@ const AddEmployee = () => {
 
   const submitActionHandler = (event) => {
     event.preventDefault();
-
-    if (validateForm()) {
       axios
         .post(baseURL, {
           employeeId: employeeId,
@@ -122,16 +136,16 @@ const AddEmployee = () => {
         })
         .then((response) => {
           console.log(response.data);
-          alert('Employee ' + employeeName + ' added!');
-          setShowToastSuccess(true)
-          setToastMessage("Employee added successfully")
-          navigate('/viewemployees');
+          // alert('Employee ' + employeeName + ' added!');
+          setShowToastSuccess(true);
+          setToastMessage("Employee added successfully");
+          //navigate('/viewemployees');
         })
         .catch((error) => {
           setShowToastFail(true);
           setToastMessage("Employee addition failed");
         });
-    } 
+    
   };
 
   const cancelHandler = () => {
@@ -240,12 +254,13 @@ const AddEmployee = () => {
           Cancel
         </button>
       </form>
-      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+      
+        <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
 
-        <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+         <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
 
-          <Toast.Body>{toastMessage}</Toast.Body>
-        </Toast>
+           <Toast.Body>{toastMessage}</Toast.Body>
+       </Toast>
       </ToastContainer>
       <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
 
@@ -253,6 +268,7 @@ const AddEmployee = () => {
           <Toast.Body>{toastMessage}</Toast.Body>
         </Toast>
       </ToastContainer>
+  
     </div>
   );
 };
