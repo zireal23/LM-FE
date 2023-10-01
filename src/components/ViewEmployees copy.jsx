@@ -25,14 +25,19 @@ const ViewEmployees= () => {
   }, []);
 
   return (
-    <div className="container">
-      <h3 >Employees List</h3>
-      <div className="table table-responsive table-striped">
-      {employees.length === 0 ? (
+    <div className="card-body">
+      <br></br>
+      <div className="col-md-6">
+      <div className='employee-view'>
+        <h3 >Employees List</h3>
+        </div>
+        <div class="container">
+          <div className="row">
+            {/* <div class="col-12"> */}
+            {employees.length === 0 ? (
                 <p className='noItemsToView'>No employees to be shown</p>
-              ) : (<table>
-              <thead className="thead-light">
-                <div className="row">
+              ) : (<table className="table table-bordered table-striped table-responsive">
+              <thead>
                 <tr>
                   <th>Employee ID</th>
                   <th>Date of Birth</th>
@@ -45,8 +50,6 @@ const ViewEmployees= () => {
                   <th scope="col">Action</th>
                   <th scope="col">Delete</th>
                 </tr>
-                </div>
-                
               </thead>
               <tbody>
 
@@ -78,17 +81,20 @@ const ViewEmployees= () => {
 
               </tbody>
             </table>)}
-      </div>
-      
-      <div className='viewAllLoansButtonDiv'>
+            <div className='viewAllLoansButtonDiv'>
               <button className='viewAllLoansButton' onClick={() => navigate("/create")}>
                   Create New Employee
               </button>
             </div>
+              
 
+            {/* </div> */}
+          </div>
+        </div>
+        
+      </div>
 
     </div>
-
 
   );
 }

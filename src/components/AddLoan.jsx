@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaCashRegister, FaClock } from "react-icons/fa";
-import { ToastContainer } from 'react-toastify';
-import { Toast } from 'react-bootstrap';
+import { Toast, ToastContainer } from 'react-bootstrap';
 
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
