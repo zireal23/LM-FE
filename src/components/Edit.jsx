@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
@@ -9,23 +9,18 @@ import EmployeeViewServices from '../services/EmployeeService';
 
 const Edit = () => {
   const navigate = useNavigate();
+  const {state} = useLocation();
+  const {employee} = state;
   const baseURL = "http://localhost:7000/editempbyid";
   const { employeeId } = useParams();
-  const [employeeName, setEmployeeName] = useState('');
-  const [department, setDepartment] = useState('');
-  const [designation, setDesignation] = useState('');
-  const [gender, setGender] = useState('');
-  const [dateofbirth, setdateofbirth] = useState('');
-  const [dateofjoining, setDateofjoining] = useState('');
-  const [password, setPassword] = useState('');
-
-  useEffect(() => {
-    EmployeeViewServices.getEmployeeById(employeeId).then((response) => {
-      const employee = response.data;
-      setEmployeeName(employee.employeeName);
-    });
-  })
-
+  const [employeeName, setEmployeeName] = useState(employee.employeeName);
+  const [department, setDepartment] = useState(employee.department);
+  const [designation, setDesignation] = useState(employee.designation);
+  const [gender, setGender] = useState(employee.gender);
+  const [dateofbirth, setdateofbirth] = useState(employee.dateofbirth);
+  const [dateofjoining, setDateofjoining] = useState(employee.dateofjoining);
+  const [password, setPassword] = useState(employee.password);
+    
   const employeeNameChangeHandler = (event) => {
     setEmployeeName(event.target.value);
   };
@@ -113,7 +108,7 @@ const Edit = () => {
           <i className="fas fa-user">
             <FaUser style={{ color: "#121212" }} />
           </i>
-          <input type="text" value={employeeName} onChange={employeeNameChangeHandler} placeholder="Employee Name" name="employeeName" /></div>
+          <input type="text" value={employeeName} onChange={employeeNameChangeHandler} name="employeeName" />{employee.employeeName}</div>
 
         <div className='input-field'>
           <i className="fas fa-desktop">
@@ -148,9 +143,9 @@ const Edit = () => {
           </i>
           <input type="password" value={password} onChange={passwordChangeHandler} placeholder="Password" required /></div>
 
-        <button type='submit' className="btn solid">Edit Employee</button>
+        <button type='submit' className="loginButton transparent">Edit Employee</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
+        <button type='reset' className="loginButton transparent" onClick={() => cancelHandler()}>Cancel</button>
 
       </form>
 
