@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useNavigate} from "react-router-dom";
 import { useParams } from 'react-router-dom'; 
 import axios from "axios";
+import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaTransgender, FaGenderless, FaMale, FaCalendar, FaSitemap } from "react-icons/fa";
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const EditItem = () => {
@@ -35,8 +36,7 @@ useEffect(() => {
 
   const handleItemCategoryChange = (e) => {
     setItemCategory(e.target.value);
-    document.getElementById("itemMake").selectedIndex = 0;
-    // document.getElementById("itemDescription").selectedIndex = 0;
+
 };
 
 const handleItemMakeChange = (e) => {
@@ -87,76 +87,52 @@ const handleItemStatusChange = (e) => {
   }
     return(
       
-        <div className="container">
-        <div className="form-container">
-            <h1 className="mb-4">Add Item</h1>
+        <div className='addEmployee'>
+
             <form onSubmit={submitActionHandler}>
-                <div className="form-group">
-                    <label htmlFor="itemCategory">Item Category : </label>
-                    <select
-                        className="form-control"
-                        id="itemCategory"
-                        onChange={handleItemCategoryChange}
-                    >
-                        <option disabled selected>
-                            Please Select a Value
-                        </option>
-                        {itemCategoryArray.map((val, idx) => {
-                            return (
-                                <option value={val} key={idx}>
-                                    {val}
-                                </option>
-                            );
-                        })}
-                        {/* <option value="Stationary">Stationary</option>
-          <option value="Crockery">Crockery</option> */}
-                    </select>
-                </div>
 
-                <label>
-                    Item Description: <input type="text" name="name" onChange={handleItemDescriptionChange}/>
-                </label>
+                <h2 className="title">Edit Item</h2>
 
-                <label>
-                    Item Value: <input type="text" name="name" onChange={handleItemValueChange}/>
-                </label>
+                <div className='input-field'>
+                    <i className="fas fa-user">
+                        <FaUser style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemCategoryChange} placeholder="Item Category" required /></div>
 
-                <label>
-                    Issue Status:
-                    <select name="issueStatus" onChange={handleItemStatusChange}>
-                        <option value="">Select</option>
+                <div className='input-field'>
+                    <i className="fas fa-desktop">
+                        <FaDesktop style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemDescriptionChange} placeholder="Item Description" required /></div>
+
+
+                <div className='input-field'>
+                    <i className="fas fa-deskpro">
+                        <FaDeskpro style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemValueChange} placeholder="Item Value" required /></div>
+                <div className='input-field'>
+                    <i className="fas fa-deskpro">
+                        <FaDeskpro style={{ color: "#121212" }} />
+                    </i>
+                    <select name="itemStatus" onChange={handleItemStatusChange} placeholder="Gender" >
+
                         <option value="Y">Y</option>
                         <option value="N">N</option>
-                    </select>
-                </label>
-
-                <div className="form-group">
-                    <label htmlFor="itemMake">Item Make : </label>
-                    <select
-                        className="form-control"
-                        id="itemMake"
-                        onChange={handleItemMakeChange}
-                    >
-                        <option selected disabled>
-                            Please select an option
-                        </option>
-                        {itemMakeArray.map((val, idx) => {
-                            return (
-                                <option value={val} key={idx}>
-                                    {val}
-                                </option>
-                            );
-                        })}
-                    </select>
+                        </select>
                 </div>
+                <div className='input-field'>
+                    <i className="fas fa-calendar">
+                        <FaCalendar style={{ color: "#121212" }} />
+                    </i>
+                    <input type="text" name="name" onChange={handleItemMakeChange} placeholder="Item Make" required /></div>
 
-                <button type="submit" className="btn btn-submit">
-                    Add Item
-                </button>
+
+                <button type='submit' className="btn solid">Add Item</button>
+
             </form>
-        </div>
-    </div>
 
+        </div>
     
     
     );
