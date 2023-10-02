@@ -16,7 +16,7 @@ const Login = () => {
   useEffect(() => {
     const sign_in_btn = document.querySelector("#sign-in-btn");
     const sign_up_btn = document.querySelector("#sign-up-btn");
-    const container = document.querySelector(".container");
+    const container = document.querySelector(".loginContainer");
     if (sign_up_btn && sign_in_btn) {
       sign_up_btn.addEventListener("click", () => {
         if (container !== null) container.classList.add("sign-up-mode");
