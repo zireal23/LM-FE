@@ -8,7 +8,7 @@ const Navbar = () => {
   };
 
     return (
-      <nav className="navbar">
+      <nav className="nav-bar">
         <div className="navbar-container">
           <div className="left-section">
                {/* <NavLink to="/landingpage" activeClassName="active" inactiveClassName="inactive">LoanLeLo</NavLink> */}
