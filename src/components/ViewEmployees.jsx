@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { CompactTable } from '@table-library/react-table-library/compact';
-import { useTheme } from '@table-library/react-table-library/theme';
-import { getTheme } from '@table-library/react-table-library/baseline';
+// import { CompactTable } from '@table-library/react-table-library/compact';
+// import { useTheme } from '@table-library/react-table-library/theme';
+// import { getTheme } from '@table-library/react-table-library/baseline';
 //import editIcon from "./../assets/edit.png";
 //import deleteIcon from "./../assets/delete.JPG";
 
@@ -59,13 +59,13 @@ const ViewEmployees= () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="tablecontainer">
       <h3 >Employees List</h3>
-      <div className="table table-responsive table-dark">
+      <div className="table table-responsive table-dark table-borderless">
       {employees.length === 0 ? (
                 <p className='noItemsToView'>No employees to be shown</p>
               ) : (<table>
-              <thead>
+              <thead> 
                 <tr>
                   <th>Employee ID</th>
                   <th>Date of Birth</th>
@@ -97,10 +97,10 @@ const ViewEmployees= () => {
                       <td>{employee.gender}</td>
 
                       
-                      <td><Link to={`/edit/${employee.employeeId}`} className='edit-link' >Edit
+                      <td><Link to={`/edit/${employee.employeeId}`} className='edit-link' ><button className='loginButton transparent'>Edit</button>
                       </Link></td>
                       
-                      <td><Link to={`/delete/${employee.employeeId}`} className='delete-link'>Delete
+                      <td><Link to={`/delete/${employee.employeeId}`} className='delete-link'><button className='loginButton transparent'>Delete</button>
                       </Link></td>                      
 
                     </tr>
@@ -116,10 +116,15 @@ const ViewEmployees= () => {
               <button className='viewAllLoansButton' onClick={() => navigate("/create")}>
                   Create New Employee
               </button>
-            </div>
+      </div>
+      
+      <div className="adminredirect" onClick={() => navigate("/admindashboard")}>
+          &lt; &lt; Go to admin dashboard
+      </div>
 
+      </div>
 
-    </div>
+      
 
 
   );
