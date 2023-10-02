@@ -3,6 +3,8 @@ import "../App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaUser, FaLock } from "react-icons/fa";
+import { ToastContainer, Toast } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +13,9 @@ const Login = () => {
   
   const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
+  const [showToastSuccess, setShowToastSuccess] = useState(false)
+  const [showToastFail, setShowToastFail] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,21 +56,27 @@ const Login = () => {
 
         const {employeeName, designation, department, result} = response.data;
         if(result === "Login Successful"){
-          alert("Success!");
+          // alert("Success!");
           sessionStorage.setItem("employeeName", employeeName);
           sessionStorage.setItem("designation", designation);
           sessionStorage.setItem("department", department);
           sessionStorage.setItem("employeeID", employeeId);
-          navigate("/userdashboard");
+          setShowToastSuccess(true)
+          setToastMessage("User logged in successfully")
+          setTimeout(() => {
+            navigate('/userdashboard');
+          }, 3000);
         }
         else{
-          alert("Failed");
+          setShowToastFail(true)
+          setToastMessage("Username or password incorrect. Please try again");
         }
         
         
       })
       .catch((error) => {
-        alert("Failed");
+        setShowToastFail(true)
+        setToastMessage("Username doesn't exist!");
       });
     console.log("Login:", { employeeId, password });
   };
@@ -83,22 +94,30 @@ const Login = () => {
               
         // const {employeeName, designation, department, result} = response.data;
         sessionStorage.setItem("employeeID", employeeId);
-        // if(result === "Login Successful"){
-          
-        // }
-        alert("Success!");
+        if(response.data === "Login Successful"){
+          setShowToastSuccess(true)
+          setToastMessage("Admin logged in successfully")
+          setTimeout(() => {
+            navigate('/admindashboard');
+          }, 3000)
+        }
+        else{
+          setShowToastFail(true)
+          setToastMessage("Login failed");
+        }
+        // alert("Success!");
           // sessionStorage.setItem("employeeName", employeeName);
           // sessionStorage.setItem("designation", designation);
           // sessionStorage.setItem("department", department);
           // sessionStorage.setItem("employeeID", employeeId);
-          navigate("/admindashboard");
-
+          
         // else{
         //   alert("Failed");
         // }
       })
       .catch((error) => {
-        alert("Failed");
+        setShowToastFail(true)
+        setToastMessage("Admin doesn't exist!");
       });
     console.log("Login:", { employeeId, password });
   };
@@ -198,6 +217,20 @@ const Login = () => {
           </form>
         </div>
       </div>
+
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+
+         <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+
+           <Toast.Body>{toastMessage}</Toast.Body>
+       </Toast>
+      </ToastContainer>
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+
+        <Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
 
       <div className="panels-container">
         <div className="panel left-panel">
