@@ -97,9 +97,9 @@ const AddLoan = () => {
 
 
 
-        <button type='submit' className="btn solid">Add Loan</button>
+        <button type='submit' className="loginButton transparent">Add Loan</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
+        <button type='reset' className="loginButton transparent" onClick={() => cancelHandler()}>Cancel</button>
 
       </form>
       <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>

@@ -22,6 +22,21 @@ const ViewAllItems = () => {
     });
   }, []);
 
+  const sendItemData = (item) => {
+    console.log(item);
+    // navigate(`/edititems/${item.itemId}`, {
+    //   replace: true,
+    //   state: {
+    //     itemid: item.itemid,
+    //     itemdescription: item.itemDescription,
+    //     itemmake: item.itemMake,
+    //     itemcategory: item.itemCategory,
+    //     itemvaluation: item.itemValuation,
+    //     itemstatus: item.itemStatus,
+    //   }
+    // })
+  }
+
   return (
     <div className="card-body">
       <br></br>
@@ -52,10 +67,9 @@ const ViewAllItems = () => {
                       <td>{item.itemStatus}</td>  
                       <td>{item.itemCategory}</td>  
                       <td>{item.itemValuation}</td>  
-                      <td><Link to={`/edititem/${item.itemId}` }>Edit
-                        </Link></td>
+                      <td><button className='loginButton transparent' onClick={()=>{sendItemData(item)}}>Edit</button></td>
                        
-                        <td><Link to={`/deleteitem/${item.itemId}`}>Delete
+                        <td><Link to={`/deleteitem/${item.itemId}`}><button className='loginButton transparent'>Delete</button>
                         </Link></td>    
                     </tr>
                   ))}

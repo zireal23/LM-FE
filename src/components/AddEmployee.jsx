@@ -251,11 +251,11 @@ const AddEmployee = () => {
           <span className='error'>{errors.password}</span>
         </div>
 
-        <button type='submit' className='btn solid'>
+        <button type='submit' className='loginButton transparent'>
           Add Employee
         </button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' className='btn solid' onClick={() => cancelHandler()}>
+        <button type='reset' className='loginButton transparent' onClick={() => cancelHandler()}>
           Cancel
         </button>
       </form>
