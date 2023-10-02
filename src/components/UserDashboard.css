@@ -24,8 +24,7 @@ h1 {
   font-size: 16px;
   cursor: pointer;
   outline: none;
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    border-radius 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, border-radius 0.2s ease;
   border-radius: 20px;
 }
 
@@ -33,4 +32,26 @@ h1 {
   background-color: #0056b3;
   transform: scale(1.05);
   border-radius: 24px;
+}
+
+/* Media query for smaller screens (e.g., mobile phones) */
+@media (max-width: 767px) {
+  .user-dashboard {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dashboard-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 16px;
+  }
 }
