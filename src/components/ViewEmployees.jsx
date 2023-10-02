@@ -45,6 +45,13 @@ const ViewEmployees= () => {
 
   }
 
+  const sendEmployeeData = (employee) => {
+    navigate(`/edit/${employee.employeeId}`,{
+      replace: true,
+      state: {employee}
+    })
+  }
+
   const setEmployeeData = () => {
     axios.get(baseURL ).then((response) => {
       setEmployees(response.data);
@@ -97,8 +104,7 @@ const ViewEmployees= () => {
                       <td>{employee.gender}</td>
 
                       
-                      <td><Link to={`/edit/${employee.employeeId}`} className='edit-link' ><button className='loginButton transparent'>Edit</button>
-                      </Link></td>
+                      <td><button className='loginButton transparent' onClick={()=>{sendEmployeeData(employee)}}>Edit</button></td>
                       
                       <td><Link to={`/delete/${employee.employeeId}`} className='delete-link'><button className='loginButton transparent'>Delete</button>
                       </Link></td>                      
