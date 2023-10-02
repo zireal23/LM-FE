@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Sidebar from './Sidebar'
 import "../App.css";
 
 function Loanapply() {
   const navigate = useNavigate();
   const employeeID = sessionStorage.getItem("employeeID");
-  const employeeName = sessionStorage.getItem("employeeName");
-  const designation = sessionStorage.getItem("designation");
-  const department = sessionStorage.getItem("department");
   const [itemCategoryArray, setItemCategoryArray] = useState([]);
   const [itemMakeArray, setItemMakeArray] = useState([]);
   const [itemArray, setItemArray] = useState([]);
@@ -78,24 +76,19 @@ function Loanapply() {
 
   return (
     <div className="applyLoan">
+      <Sidebar />
+<h4 className="headw">Select Product and Apply for Loan</h4>
 
-<h1 className="headw">Select Product and Apply for Loan</h1>
-
-      <div className="aww">
-      <p>ID: {employeeID}</p>
-      <p>Name: {employeeName}</p>
-      <p>Designation: {designation}</p>
-      <p>Department: {department}</p>
-      </div>
+      
       <div className="dww">
         {/* <h1 className="headw">Select Product and Apply for Loan</h1> */}
         <form onSubmit={handleSubmit}>
           <div className="footw">
-            <label htmlFor="employeeId">Employee ID :</label>
-            {employeeID}
+            <label htmlFor="employeeId" className="lol">Employee ID</label><br />
+            <div className="formdata">{employeeID}</div>
           </div>
           <div className="footw">
-            <div className="lol" htmlFor="itemCategory">Item Category : </div>
+            <div className="lol" htmlFor="itemCategory" >Item Category</div>
             <select
               className="opt"
               id="itemCategory"
@@ -116,7 +109,7 @@ function Loanapply() {
             </select>
           </div>
           <div className="footw">
-            <div className="lol" htmlFor="itemMake">Item Make : </div>
+            <div className="lol" htmlFor="itemMake">Item Make</div>
             <select
               className="opt"
               id="itemMake"
@@ -135,7 +128,7 @@ function Loanapply() {
             </select>
           </div>
           <div className="footw">
-            <div className="lol" htmlFor="itemDescription">Item Description : </div>
+            <div className="lol" htmlFor="itemDescription">Item Description </div>
             <select
               className="opt"
               id="itemDescription"
@@ -154,11 +147,11 @@ function Loanapply() {
             </select>
           </div>
           <div className="footw">
-            <div className="lol" htmlFor="itemValuation">Item Value : </div>
-            {itemValuation}
+            <div className="lol" htmlFor="itemValuation">Item Value</div>
+            <div className="formdata">{itemValuation}</div>
           </div>
 
-          <button type="submit" className="btn btn-submit">
+          <button type="submit" className="loginButton transparent">
             Apply Loan
           </button>
         </form>

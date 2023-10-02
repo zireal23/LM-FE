@@ -5,9 +5,6 @@ import Sidebar from './Sidebar'
 
 const ViewLoans = () => {
   const employeeID = sessionStorage.getItem("employeeID");
-  const employeeName = sessionStorage.getItem("employeeName");
-  const designation = sessionStorage.getItem("designation");
-  const department = sessionStorage.getItem("department");
   const navigate = useNavigate();
   const baseURL = `http://localhost:7000/fetchLoans?employeeId=${employeeID}`;
   const [loanArray, setLoanArray] = useState([]);

@@ -824,7 +824,12 @@ table {
   width: fit-content;
   margin:auto;
   border-radius: 10px;
-  background-color: rgb(218, 212, 212);
+  background: rgba(174, 197, 240, 0.25);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 16.5px );
+-webkit-backdrop-filter: blur( 16.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
  
 }
 .aww{
@@ -837,8 +842,9 @@ table {
 .headw{
 color: var(--text);
 text-align: center;
-font-size: 35px;
-margin-top: 7px;
+/* font-size: 35px; */
+padding-top: 4%;
+margin-bottom: 2%;
 }
 
 .footw{
@@ -855,6 +861,16 @@ margin-top: 7px;
 
 .lol{
   padding-bottom: 3px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.8px;
+  word-spacing: 2.8px;
+  color: #B0CEFF;
+  font-weight: 700;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
 }
 
 /* CSS for ViewAllLoans */
@@ -951,6 +967,10 @@ thead{
   padding-left: 30%;
   padding-top: 10%;
   color: #04befe;
+}
+
+.formdata{
+  color: white;
 }
 
 /* Sidebar container */
