@@ -77,9 +77,9 @@ const EditLoan = () => {
 
 
 
-        <button type='submit' className="btn solid">Edit Loan</button>
+        <button type='submit' className="loginButton transparent">Edit Loan</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
+        <button type='reset' className="loginButton transparent" onClick={() => cancelHandler()}>Cancel</button>
 
       </form>
 

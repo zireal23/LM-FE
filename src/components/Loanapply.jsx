@@ -158,7 +158,7 @@ function Loanapply() {
             {itemValuation}
           </div>
 
-          <button type="submit" className="btn btn-submit">
+          <button type="submit" className="loginButton transparent">
             Apply Loan
           </button>
         </form>

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaTransgender, FaGenderless, FaMale, FaCalendar, FaSitemap } from "react-icons/fa";
+import { ToastContainer, Toast } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function AddItems() {
     const navigate = useNavigate();
@@ -13,27 +16,29 @@ function AddItems() {
     const [itemMake, setItemMake] = useState("");
     const [itemId, setItemId] = useState();
     const [itemStatus, setItemStatus] = useState("");
+    const [showToastSuccess, setShowToastSuccess] = useState(false)
+    const [showToastFail, setShowToastFail] = useState(false)
+    const [toastMessage, setToastMessage] = useState('');
 
-    useEffect(() => {
-        axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
-            console.log(res.data);
-            setItemCategoryArray(res.data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
+    //         console.log(res.data);
+    //         setItemCategoryArray(res.data);
+    //     });
+    // }, []);
 
-    useEffect(() => {
-        if (itemCategory) {
-            axios
-                .get(`http://localhost:7000/fetchItemMake?category=${itemCategory}`)
-                .then((res) => {
-                    setItemMakeArray(res.data);
-                });
-        }
-    }, [itemCategory]);
+    // useEffect(() => {
+    //     if (itemCategory) {
+    //         axios
+    //             .get(`http://localhost:7000/fetchItemMake?category=${itemCategory}`)
+    //             .then((res) => {
+    //                 setItemMakeArray(res.data);
+    //             });
+    //     }
+    // }, [itemCategory]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(itemStatus);
         axios.post("http://localhost:7000/saveItem", {
             itemId,
             itemStatus,
@@ -42,8 +47,14 @@ function AddItems() {
             itemMake,
             itemValuation
         }).then(res => {
-            alert(res.data);
-            navigate("/viewitems");
+            setShowToastSuccess(true);
+            setToastMessage("Items added succesfully");
+            setTimeout(()=>{
+                navigate("/viewitems");
+            },3000);
+        }).catch((e)=>{
+            setShowToastFail(true);
+            setToastMessage("Failed to add items");
         })
     };
 
@@ -125,9 +136,22 @@ function AddItems() {
                     <input type="text" name="name" onChange={handleItemMakeChange} placeholder="Item Make" required /></div>
 
 
-                <button type='submit' className="btn solid">Add Item</button>
+                <button type='submit' className="loginButton transparent">Add Item</button>
 
             </form>
+            <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+
+            <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+   
+              <Toast.Body>{toastMessage}</Toast.Body>
+          </Toast>
+         </ToastContainer>
+         <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+   
+           <Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+             <Toast.Body>{toastMessage}</Toast.Body>
+           </Toast>
+         </ToastContainer>
 
         </div>
 
