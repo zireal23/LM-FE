@@ -30,7 +30,7 @@ const DeleteItem = () => {
   const cancelHandler = () =>{
     //reset the values of input fields
     
-   // navigate("/read");
+   navigate("/viewitems");
 
   }
     return(
@@ -40,9 +40,9 @@ const DeleteItem = () => {
       <form onSubmit={submitActionHandler}>
         
         <h3 className='del'>Do you want to delete this item?</h3>
-        <button type='submit' className="btn solid">Yes</button>
+        <button type='submit' className="loginButton transparent">Yes</button>
         &nbsp;&nbsp;&nbsp;
-        <button type='reset' className="btn solid" onClick={()=>cancelHandler()}>No</button> 
+        <button type='reset' className="loginButton transparent" onClick={()=>cancelHandler()}>No</button> 
       </form>
 
       </div>

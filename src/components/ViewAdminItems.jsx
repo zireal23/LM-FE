@@ -24,6 +24,21 @@ const ViewAdminItems= () => {
     setItemData();
   }, []);
 
+  
+  const sendItemData = (item) => {
+    navigate(`/edititems/${item.itemId}`, {
+      replace: true,
+      state: {
+        itemid: item.itemid,
+        itemdescription: item.itemDescription,
+        itemmake: item.itemMake,
+        itemcategory: item.itemCategory,
+        itemvaluation: item.itemValuation,
+        itemstatus: item.itemStatus,
+      }
+    })
+  }
+
   return (
     <div className="tablecontainer">
       <h3 className="tableheading">Items List</h3>
@@ -49,21 +64,21 @@ const ViewAdminItems= () => {
 
                   {
                     
-                    items.map((items, index) => (
+                    items.map((item, index) => (
 
                       <tr>
-                        <th scope="row">{items.itemId}</th>
+                        <th scope="row">{item.itemId}</th>
 
-                        <td>{items.itemCategory}</td>
-                        <td>{items.itemDescription}</td>
-                        <td>{items.itemMake}</td>
-                        <td>{items.itemStatus}</td>
-                        <td>{items.itemValuation}</td>
+                        <td>{item.itemCategory}</td>
+                        <td>{item.itemDescription}</td>
+                        <td>{item.itemMake}</td>
+                        <td>{item.itemStatus}</td>
+                        <td>{item.itemValuation}</td>
                         
-                        <td><Link to={"/edititems/" +items.itemId}className='edit-link'><button className='loginButton transparent'>Edit</button>
-                        </Link></td>
-                        <td><Link to={"/deleteitems/" + items.itemId} className='delete-link'><button className='loginButton transparent'>Delete</button>
-                        </Link></td>
+                        <td><button className='loginButton transparent' onClick={()=>{sendItemData(item)}}>Edit</button></td>
+                       
+                        <td><Link to={`/deleteitem/${item.itemId}`}><button className='loginButton transparent'>Delete</button>
+                        </Link></td>   
                       </tr>
 
                     ))

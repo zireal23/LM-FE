@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import { useParams } from 'react-router-dom'; 
 import axios from "axios";
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaTransgender, FaGenderless, FaMale, FaCalendar, FaSitemap } from "react-icons/fa";
@@ -9,13 +9,20 @@ const EditItem = () => {
   const navigate = useNavigate();
   const baseURL = "http://localhost:7000/edititembyid";
   const { itemId } = useParams();
+  const { state } = useLocation();
+  const {
+    itemdescription,
+    itemmake,
+    itemcategory,
+    itemvaluation,
+    itemstatus} = state;
   const [itemCategoryArray, setItemCategoryArray] = useState([]);
   const [itemMakeArray, setItemMakeArray] = useState([]);
-  const [itemCategory, setItemCategory] = useState("");
-  const [itemDescription, setItemDescription] = useState("");
-  const [itemValuation, setItemValuation] = useState();
-  const [itemMake, setItemMake] = useState("");
-  const [itemStatus, setItemStatus] = useState("");
+  const [itemCategory, setItemCategory] = useState(itemcategory);
+  const [itemDescription, setItemDescription] = useState(itemdescription);
+  const [itemValuation, setItemValuation] = useState(itemvaluation);
+  const [itemMake, setItemMake] = useState(itemmake);
+  const [itemStatus, setItemStatus] = useState(itemstatus);
 
   useEffect(() => {
     axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
@@ -85,6 +92,7 @@ const handleItemStatusChange = (e) => {
    // navigate("/read");
 
   }
+
     return(
       
         <div className='addEmployee'>
@@ -97,20 +105,20 @@ const handleItemStatusChange = (e) => {
                     <i className="fas fa-user">
                         <FaUser style={{ color: "#121212" }} />
                     </i>
-                    <input type="text" name="name" onChange={handleItemCategoryChange} placeholder="Item Category" required /></div>
+                    <input type="text" name="name" value={itemCategory} onChange={handleItemCategoryChange} placeholder="Item Category" required /></div>
 
                 <div className='input-field'>
                     <i className="fas fa-desktop">
                         <FaDesktop style={{ color: "#121212" }} />
                     </i>
-                    <input type="text" name="name" onChange={handleItemDescriptionChange} placeholder="Item Description" required /></div>
+                    <input type="text" name="name" value={itemDescription} onChange={handleItemDescriptionChange} placeholder="Item Description" required /></div>
 
 
                 <div className='input-field'>
                     <i className="fas fa-deskpro">
                         <FaDeskpro style={{ color: "#121212" }} />
                     </i>
-                    <input type="text" name="name" onChange={handleItemValueChange} placeholder="Item Value" required /></div>
+                    <input type="text" name="name" value={itemValuation} onChange={handleItemValueChange} placeholder="Item Value" required /></div>
                 <div className='input-field'>
                     <i className="fas fa-deskpro">
                         <FaDeskpro style={{ color: "#121212" }} />
@@ -125,10 +133,10 @@ const handleItemStatusChange = (e) => {
                     <i className="fas fa-calendar">
                         <FaCalendar style={{ color: "#121212" }} />
                     </i>
-                    <input type="text" name="name" onChange={handleItemMakeChange} placeholder="Item Make" required /></div>
+                    <input type="text" name="name" value={itemMake} onChange={handleItemMakeChange} placeholder="Item Make" required /></div>
 
 
-                <button type='submit' className="btn solid">Add Item</button>
+                <button type='submit' className="loginButton transparent">Edit Item</button>
 
             </form>
 
