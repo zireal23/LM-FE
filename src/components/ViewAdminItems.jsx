@@ -25,30 +25,12 @@ const ViewAdminItems= () => {
   }, []);
 
   return (
-    <div class="card-body">
-      <br>
-      </br>
-      {/* <nav>
-        <button
-          className="btn btn-primary nav-item active"
-          onClick={() => navigate("/create")}>
-          Create New Employee
-        </button>
-      </nav> */}
-
-
-      <br></br>
-      <div className="col-md-6">
-      <div className='employee-view'>
-        <h3 >Items List</h3>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              {items.length === 0 ? (
+    <div className="tablecontainer">
+      <h3 className="tableheading">Items List</h3>
+      <div className="table table-responsive table-dark table-borderless">
+        {items.length === 0 ? (
                 <p className='noItemsToView'>No items to be shown</p>
-              ) : (<table class="table table-bordered table-striped">
+              ) : (<table className="itemstable">
                 <thead>
                   <tr>
                     <th>Item ID</th>
@@ -78,9 +60,9 @@ const ViewAdminItems= () => {
                         <td>{items.itemStatus}</td>
                         <td>{items.itemValuation}</td>
                         
-                        <td><Link to={"/edititems/" +items.itemId}className='edit-link'>Edit
+                        <td><Link to={"/edititems/" +items.itemId}className='edit-link'><button className='loginButton transparent'>Edit</button>
                         </Link></td>
-                        <td><Link to={"/deleteitems/" + items.itemId} className='delete-link'>Delete
+                        <td><Link to={"/deleteitems/" + items.itemId} className='delete-link'><button className='loginButton transparent'>Delete</button>
                         </Link></td>
                       </tr>
 
@@ -94,16 +76,14 @@ const ViewAdminItems= () => {
                   Create New Item
               </button>
             </div>
-              
-              
 
-            </div>
-          </div>
+            <div className="adminredirect" onClick={() => navigate("/admindashboard")}>
+          &lt; &lt; Go to admin dashboard
+      </div>
         </div>
         
       </div>
 
-    </div>
 
   );
 }

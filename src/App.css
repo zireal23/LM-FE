@@ -626,7 +626,11 @@ form.sign-in-form {
   }
 
   .viewAllLoansButtonDiv{
-    margin-right: 50%;
+    margin-right: 40%;
+  }
+
+  .loantable{
+    margin-left: -100px;
   }
 }
 
@@ -707,10 +711,6 @@ table {
   display: block !important;
   overflow-x: auto !important;
   width: 100% !important;
-  /* margin-left: 20%; */
-  /* margin-right: 10%; */
-  /* padding-left: 15%;
-  padding-right: -45%; */
 }
 
 .table-column {
@@ -911,8 +911,8 @@ thead{
   background-color: black;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  width: 100%;
+  /* margin: 0 auto; */
+  /* width: 100%; */
 }
 
 .tableheading{
@@ -922,14 +922,19 @@ thead{
 
 .adminredirect{
   margin-left: 1rem;
+  margin-top: 1rem;
   color: #04befe;
   cursor: pointer;
 }
 
 .employeetable{
-  margin-left: 10%;
+  padding-left: 10%;
 }
 
 .loantable{
-  margin-left: 27%;
+  padding-left: 27%;
+}
+
+.itemstable{
+  padding-left: 15%;
 }
