@@ -27,12 +27,11 @@ const ViewEmployees= () => {
   return (
     <div className="container">
       <h3 >Employees List</h3>
-      <div className="table table-responsive table-striped">
+      <div className="table table-responsive">
       {employees.length === 0 ? (
                 <p className='noItemsToView'>No employees to be shown</p>
               ) : (<table>
-              <thead className="thead-light">
-                <div className="row">
+              <thead>
                 <tr>
                   <th>Employee ID</th>
                   <th>Date of Birth</th>
@@ -45,7 +44,6 @@ const ViewEmployees= () => {
                   <th scope="col">Action</th>
                   <th scope="col">Delete</th>
                 </tr>
-                </div>
                 
               </thead>
               <tbody>
