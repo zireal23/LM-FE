@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import Sidebar from './Sidebar'
 
 const ViewLoans = () => {
   const employeeID = sessionStorage.getItem("employeeID");
@@ -26,19 +27,14 @@ const ViewLoans = () => {
   }, []);
 
   return (
-    <div className="card-body">
-      <br></br>
-      <div className="col-md-12">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-            <p>ID: {employeeID}</p>
-              <p>Name: {employeeName}</p>
-              <p>Designation: {designation}</p>
-              <p>Department: {department}</p>
-            {loanArray.length === 0 ? (
+    <div className="tablecontainer">
+      <Sidebar />
+      
+      <h3 className="tableheading">Loan List</h3>
+      <div className="table table-responsive table-dark table-borderless">
+      {loanArray.length === 0 ? (
                 <p>No loans to be shown</p>
-              ) :(<table className="table table-bordered table-striped">
+              ) :(<table className="useritems">
                 <thead>
                   <tr>
                     <th>Loan ID</th>                    
@@ -58,11 +54,14 @@ const ViewLoans = () => {
                   ))}
                 </tbody>
               </table>)}
-              
-            </div>
-          </div>
-        </div>
+
+              <div className="userredirect" onClick={() => navigate("/userdashboard")}>
+          &lt; &lt; Go to user dashboard
       </div>
+      </div>
+
+      
+
     </div>
   );
 };
