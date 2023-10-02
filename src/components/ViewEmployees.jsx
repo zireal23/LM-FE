@@ -60,11 +60,11 @@ const ViewEmployees= () => {
 
   return (
     <div className="tablecontainer">
-      <h3 >Employees List</h3>
+      <h3 className="tableheading">Employees List</h3>
       <div className="table table-responsive table-dark table-borderless">
       {employees.length === 0 ? (
                 <p className='noItemsToView'>No employees to be shown</p>
-              ) : (<table>
+              ) : (<table className="employeetable">
               <thead> 
                 <tr>
                   <th>Employee ID</th>

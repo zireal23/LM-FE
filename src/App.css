@@ -624,6 +624,10 @@ form.sign-in-form {
     bottom: 28%;
     left: 50%;
   }
+
+  .viewAllLoansButtonDiv{
+    margin-right: 50%;
+  }
 }
 
 /* Profile Page */
@@ -698,14 +702,15 @@ form.sign-in-form {
 
 table {
   table-layout: fixed;
-  width: 100%;
   border-collapse: collapse;
-  margin: auto;
   text-align: center;
   display: block !important;
   overflow-x: auto !important;
   width: 100% !important;
-  margin-left: 10%;
+  /* margin-left: 20%; */
+  /* margin-right: 10%; */
+  /* padding-left: 15%;
+  padding-right: -45%; */
 }
 
 .table-column {
@@ -907,10 +912,24 @@ thead{
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  width: 100%;
+}
+
+.tableheading{
+  align-items: center;
+  justify-content: center;
 }
 
 .adminredirect{
   margin-left: 1rem;
   color: #04befe;
   cursor: pointer;
+}
+
+.employeetable{
+  margin-left: 10%;
+}
+
+.loantable{
+  margin-left: 27%;
 }
