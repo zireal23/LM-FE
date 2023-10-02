@@ -23,17 +23,13 @@ const ViewAllLoans = () => {
   }, []);
 
   return (
-    <div className="card-body">
-      <br></br>
-      <div className="col-md-12">
-        <h4>Loans</h4>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
+    <div className="tablecontainer">
+      <h3 className="tableheading">Loan List</h3>
+      <div className="table table-responsive table-dark table-borderless">
             {loanArray.length === 0 ? (
                 <p className='noItemsToView'>No loans to be shown</p>
               ) : (
-                <table className="table table-bordered table-striped">
+                <table className = "loantable">
                   <thead>
                     <tr>
                       <th>Loan ID</th>                    
@@ -43,44 +39,23 @@ const ViewAllLoans = () => {
                       <th scope="col">Delete</th>
                     </tr>
                   </thead>
-                  {/* <tbody>
-                    
-                      <tr className='viewAllLoansTableContents'>
-                        <td>001</td>
-                        <td>Furniture</td>
-                        <td>3</td>  
-                        <td>Edit</td>
-                        <td>Delete</td>    
-                      </tr>
-                    
-                  </tbody> */}
 
-                  {/* <tbody>
-                    
-                      <tr>
-                        <td>001</td>
-                        <td>Furniture</td>
-                        <td>3</td>  
-                        <td>Edit</td>
-                        <td>Delete</td>    
-                      </tr>
-                    
-                  </tbody> */}
                   <tbody>
                     {loanArray.map((loanItem, index) => (
                       <tr className='viewAllLoansTableContents' key={index}>
                         <td>{loanItem.loanId}</td>
                         <td>{loanItem.loanType}</td>
                         <td>{loanItem.duration}</td>  
-                        <td><Link to={`/editloan/${loanItem.loanId}/${loanItem.loanType}` }>Edit
+                        <td><Link to={`/editloan/${loanItem.loanId}/${loanItem.loanType}` }><button className='loginButton transparent'>Edit</button>
                           </Link></td>
-                        <td><Link to={`/deleteloan/${loanItem.loanId}`} className='delete-link'>Delete
+                        <td><Link to={`/deleteloan/${loanItem.loanId}`} className='delete-link'><button className='loginButton transparent'>Delete</button>
                           </Link></td>    
                       </tr>
                     ))}
                   </tbody>
                 </table>
               )}
+            
               <div className='viewAllLoansButtonDiv'>
                 <button className='viewAllLoansButton'
                   onClick={() => navigate("/addloan")}>
@@ -88,11 +63,15 @@ const ViewAllLoans = () => {
                 </button>
               </div>
               
-            </div>
-          </div>
+           
+          
+        </div>
+
+        <div className="adminredirect" onClick={() => navigate("/admindashboard")}>
+          &lt; &lt; Go to admin dashboard
         </div>
       </div>
-    </div>
+   
   );
 };
 
