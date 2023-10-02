@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import Sidebar from './Sidebar'
 //import editIcon from "./../assets/edit.png";
 //import deleteIcon from "./../assets/delete.JPG";
 // import "../App.css";
@@ -8,9 +9,9 @@ import axios from "axios";
 
 const ViewItem = () => {
   const employeeID = sessionStorage.getItem("employeeID");
-  const employeeName = sessionStorage.getItem("employeeName");
-  const designation = sessionStorage.getItem("designation");
-  const department = sessionStorage.getItem("department");
+  // const employeeName = sessionStorage.getItem("employeeName");
+  // const designation = sessionStorage.getItem("designation");
+  // const department = sessionStorage.getItem("department");
   const navigate = useNavigate();
   const baseURL = `http://localhost:7000/fetchItemsOfUser?employeeId=${employeeID}`;
   const [itemArray, setItemArray] = useState([]);
@@ -29,21 +30,14 @@ const ViewItem = () => {
   }, []);
 
   return (
-    <div class="card-body">
+    <div className="tablecontainer">
+      <Sidebar />
       
-      <div className="col-md-6">
-        <h4> Item</h4>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <p>ID: {employeeID}</p>
-              <p>Name: {employeeName}</p>
-              <p>Designation: {designation}</p>
-              <p>Department: {department}</p>
-              {itemArray.length === 0 ? (
+      <h3 className="tableheading">Loan List</h3>
+      <div className="table table-responsive table-dark table-borderless">
+      {itemArray.length === 0 ? (
                 <p>No items to be shown</p>
-              ) : (<table class="table table-bordered table-striped">
+              ) : (<table className="useritems">
                 <thead>
                   <tr>
                     <th>Issue ID</th>
@@ -76,10 +70,9 @@ const ViewItem = () => {
 
                 </tbody>
               </table>)}
-
-            </div>
-          </div>
-        </div>
+              <div className="userredirect" onClick={() => navigate("/userdashboard")}>
+          &lt; &lt; Go to user dashboard
+      </div>
       </div>
     </div>
 
