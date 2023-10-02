@@ -632,6 +632,10 @@ form.sign-in-form {
   .loantable{
     margin-left: -100px;
   }
+
+  .useritems{
+    margin-left: -50px ;
+  }
 }
 
 /* Profile Page */
@@ -937,4 +941,76 @@ thead{
 
 .itemstable{
   padding-left: 15%;
+}
+
+.useritems {
+  padding-left: 30% ;
+}
+
+.userredirect{
+  padding-left: 30%;
+  padding-top: 10%;
+  color: #04befe;
+}
+
+/* Sidebar container */
+.sidebar {
+  background-color: #27293d;
+  color: white;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+/* User Information styles */
+.user-info {
+  text-align: center;
+}
+
+.user-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.user-info p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Scrollbar styles (optional) */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #4695bd;
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #1e1e2f;
+}
+
+/* Media query for phones */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px 10px;
+    margin-top: 40px;
+  }
+
+  .user-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .user-info p {
+    font-size: 0.9rem;
+  }
 }
