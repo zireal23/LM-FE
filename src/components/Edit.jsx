@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaTransgender, FaGenderless, FaMale, FaCalendar } from "react-icons/fa";
 import "../App.css"
+import EmployeeViewServices from '../services/EmployeeService';
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -18,6 +19,12 @@ const Edit = () => {
   const [dateofjoining, setDateofjoining] = useState('');
   const [password, setPassword] = useState('');
 
+  useEffect(() => {
+    EmployeeViewServices.getEmployeeById(employeeId).then((response) => {
+      const employee = response.data;
+      setEmployeeName(employee.employeeName);
+    });
+  })
 
   const employeeNameChangeHandler = (event) => {
     setEmployeeName(event.target.value);
@@ -106,7 +113,7 @@ const Edit = () => {
           <i className="fas fa-user">
             <FaUser style={{ color: "#121212" }} />
           </i>
-          <input type="text" value={employeeName} onChange={employeeNameChangeHandler} placeholder="Employee Name" required /></div>
+          <input type="text" value={employeeName} onChange={employeeNameChangeHandler} placeholder="Employee Name" name="employeeName" /></div>
 
         <div className='input-field'>
           <i className="fas fa-desktop">
@@ -141,7 +148,7 @@ const Edit = () => {
           </i>
           <input type="password" value={password} onChange={passwordChangeHandler} placeholder="Password" required /></div>
 
-        <button type='submit' className="btn solid">Add Employee</button>
+        <button type='submit' className="btn solid">Edit Employee</button>
         &nbsp;&nbsp;&nbsp;
         <button type='reset' className="btn solid" onClick={() => cancelHandler()}>Cancel</button>
 
