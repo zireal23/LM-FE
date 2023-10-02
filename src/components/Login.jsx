@@ -19,22 +19,22 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const sign_in_btn = document.querySelector("#sign-in-btn");
-    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const sign_in_loginButton = document.querySelector("#sign-in-loginButton");
+    const sign_up_loginButton = document.querySelector("#sign-up-loginButton");
     const container = document.querySelector(".loginContainer");
-    if (sign_up_btn && sign_in_btn) {
-      sign_up_btn.addEventListener("click", () => {
+    if (sign_up_loginButton && sign_in_loginButton) {
+      sign_up_loginButton.addEventListener("click", () => {
         if (container !== null) container.classList.add("sign-up-mode");
       });
-      sign_in_btn.addEventListener("click", () => {
+      sign_in_loginButton.addEventListener("click", () => {
         if (container !== null) container.classList.remove("sign-up-mode");
       });
 
       return () => {
-        sign_up_btn.removeEventListener("click", () => {
+        sign_up_loginButton.removeEventListener("click", () => {
           if (container !== null) container.classList.add("sign-up-mode");
         });
-        sign_in_btn.removeEventListener("click", () => {
+        sign_in_loginButton.removeEventListener("click", () => {
           if (container !== null) container.classList.remove("sign-up-mode");
         });
       };
@@ -160,7 +160,7 @@ const Login = () => {
                 placeholder="Password"
               />
             </div>
-            <input type="submit" value="Login" className="btn solid" />
+            <input type="submit" value="Login" className="loginButton solid" />
           </form>
           <form className="sign-up-form" onSubmit={handleAdminLogin}>
             <h2 className="title">Admin Sign in</h2>
@@ -213,7 +213,7 @@ const Login = () => {
               />
             </div>
 
-            <input type="submit" className="btn" value="Sign up" />
+            <input type="submit" className="loginButton" value="Sign up" />
           </form>
         </div>
       </div>
@@ -239,7 +239,7 @@ const Login = () => {
             <p>
               Use the Admin login portal
             </p>
-            <button className="btn transparent" id="sign-up-btn">
+            <button className="loginButton transparent" id="sign-up-loginButton">
               Admin Sign in
             </button>
           </div>
@@ -251,7 +251,7 @@ const Login = () => {
             <p>
               Use the employee login portal
             </p>
-            <button className="btn transparent" id="sign-in-btn">
+            <button className="loginButton transparent" id="sign-in-loginButton">
               Sign in
             </button>
           </div>

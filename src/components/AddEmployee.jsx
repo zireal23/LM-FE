@@ -72,7 +72,6 @@ const AddEmployee = () => {
   const employeeNameChangeHandler = (event) => {
     if(hasNumber.test(event.target.value)){
       setShowToastFail(true);
-      console.log("This string has numbers");
       setToastMessage("Employee Name cannot have numbers and special characters")
       
     }
@@ -102,7 +101,6 @@ const AddEmployee = () => {
   const genderChangeHandler = (event) => {
     const genderUser = event.target.value;
     if(hasNumber.test(genderUser)||genderUser.length>1){
-      console.log(genderUser.length)
       setShowToastFail(true);
       setToastMessage("Gender cannot have numbers and special characters and not more than 1 character");
     }
@@ -111,6 +109,7 @@ const AddEmployee = () => {
 
   const dateofbirthChangeHandler = (event) => {
     setdateofbirth(event.target.value);
+
   };
 
   const dateofjoiningChangeHandler = (event) => {
@@ -123,6 +122,13 @@ const AddEmployee = () => {
 
   const submitActionHandler = (event) => {
     event.preventDefault();
+    const dob = new Date(dateofbirth);
+    const doj = new Date(dateofjoining);
+    if(dob>doj){
+      setShowToastFail(true);
+      setToastMessage("Date of birth cant be later than date of joining");
+      return;
+    }
       axios
         .post(baseURL, {
           employeeId: employeeId,
@@ -135,7 +141,6 @@ const AddEmployee = () => {
           password: password,
         })
         .then((response) => {
-          console.log(response.data);
           // alert('Employee ' + employeeName + ' added!');
           setShowToastSuccess(true);
           setToastMessage("Employee added successfully");
