@@ -3,6 +3,9 @@ import {useLocation, useNavigate} from "react-router-dom";
 import { useParams } from 'react-router-dom'; 
 import axios from "axios";
 import { FaUser, FaLock, FaIdCard, FaDesktop, FaDeskpro, FaTransgender, FaGenderless, FaMale, FaCalendar, FaSitemap } from "react-icons/fa";
+import { ToastContainer, Toast } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const EditItem = () => {
@@ -23,6 +26,9 @@ const EditItem = () => {
   const [itemValuation, setItemValuation] = useState(itemvaluation);
   const [itemMake, setItemMake] = useState(itemmake);
   const [itemStatus, setItemStatus] = useState(itemstatus);
+  const [showToastSuccess, setShowToastSuccess] = useState(false)
+  const [showToastFail, setShowToastFail] = useState(false)
+  const [toastMessage, setToastMessage] = useState('');
 
   useEffect(() => {
     axios.get("http://localhost:7000/distinctLoanTypes").then((res) => {
@@ -76,11 +82,15 @@ const handleItemStatusChange = (e) => {
       .then((response) => {
        // alert(response.data.employeeName);
        console.log(response.data);
-        alert("Item "+ itemCategory +" updated!");
-        navigate("/viewitems");
+        setShowToastSuccess(true);
+        setToastMessage("Item edited successfully");
+        setTimeout(() => {
+            navigate('/viewitems');
+          }, 3000)
         
       }).catch(error => {
-        alert("error==="+error);
+        setShowToastFail(true)
+          setToastMessage("Item can't be edited");
       });
 
   };
@@ -139,6 +149,20 @@ const handleItemStatusChange = (e) => {
                 <button type='submit' className="loginButton transparent">Edit Item</button>
 
             </form>
+
+        <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+
+         <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+
+           <Toast.Body>{toastMessage}</Toast.Body>
+       </Toast>
+      </ToastContainer>
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+
+        <Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
 
         </div>
     
