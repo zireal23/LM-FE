@@ -25,7 +25,10 @@ const ViewItem = () => {
       setItemArray(response.data);
     }).catch(error => {
       // alert("Error Ocurred while loading data:" + error);
-      navigate('/error');
+      // navigate('/error');
+      setTimeout(() => {
+        navigate('/userdashboard');
+      }, 3000);
     });
   }, []);
 
@@ -36,7 +39,7 @@ const ViewItem = () => {
       <h3 className="tableheading">Loan List</h3>
       <div className="table table-responsive table-dark table-borderless">
       {itemArray.length === 0 ? (
-                <p>No items to be shown</p>
+                <p Style="margin-left: 20%">No items to be shown</p>
               ) : (<table className="useritems">
                 <thead>
                   <tr>
