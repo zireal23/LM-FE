@@ -69,7 +69,7 @@ const ViewAllItems = () => {
                       <td>{item.itemValuation}</td>  
                       <td><button className='loginButton transparent' onClick={()=>{sendItemData(item)}}>Edit</button></td>
                        
-                        <td><Link to={`/deleteitem/${item.itemId}`}><button className='loginButton transparent'>Delete</button>
+                        <td><Link to={`/deleteitems/${item.itemId}`}><button className='loginButton transparent'>Delete</button>
                         </Link></td>    
                     </tr>
                   ))}
