@@ -3,10 +3,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Sidebar from './Sidebar'
 import "../App.css";
+import { ToastContainer, Toast } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Loanapply() {
   const navigate = useNavigate();
   const employeeID = sessionStorage.getItem("employeeID");
+  const [showToastSuccess, setShowToastSuccess] = useState(false)
+  const [showToastFail, setShowToastFail] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
   const [itemCategoryArray, setItemCategoryArray] = useState([]);
   const [itemMakeArray, setItemMakeArray] = useState([]);
   const [itemArray, setItemArray] = useState([]);
@@ -53,9 +58,13 @@ function Loanapply() {
       itemValuation,
       itemMake
     }).then(res => {
-      alert(res.data);
+      setShowToastSuccess(true)
+          setToastMessage("Loan applied successfully")
+          setTimeout(() => {
+            navigate('/userdashboard');
+          }, 3000);
     })
-    navigate("/userdashboard");
+    // navigate("/userdashboard");
   };
 
   const handleItemCategoryChange = (e) => {
@@ -156,6 +165,21 @@ function Loanapply() {
           </button>
         </form>
       </div>
+
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+
+<Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+
+  <Toast.Body>{toastMessage}</Toast.Body>
+</Toast>
+</ToastContainer>
+<ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+
+<Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+ <Toast.Body>{toastMessage}</Toast.Body>
+</Toast>
+</ToastContainer>
+
     </div>
   );
 }
