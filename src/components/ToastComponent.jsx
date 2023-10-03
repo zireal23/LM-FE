@@ -11,9 +11,7 @@ function ToastComponent() {
   return (
    <>
    <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
-
    <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
-
      <Toast.Body>{toastMessage}</Toast.Body>
  </Toast>
 </ToastContainer>

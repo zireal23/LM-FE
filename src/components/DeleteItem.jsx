@@ -25,10 +25,15 @@ const DeleteItem = () => {
       .then((response) => {
        // alert(response.data.employeeName);
        console.log(response.data);
-        navigate("/viewitems");
+       setShowToastSuccess(true);
+       setToastMessage("Delete item successful");
+       setTimeout(()=>{
+          navigate("/viewitems");
+       })
         
       }).catch(error => {
-        alert("error==="+error);
+        setShowToastFail(true);
+        setToastMessage("Delete items unsuccessful");
       });
 
   };
@@ -50,7 +55,17 @@ const DeleteItem = () => {
         &nbsp;&nbsp;&nbsp;
         <button type='reset' className="loginButton transparent" onClick={()=>cancelHandler()}>No</button> 
       </form>
-
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+      <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+        <Toast.Body>{toastMessage}</Toast.Body>
+    </Toast>
+   </ToastContainer>
+   <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+   
+     <Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+       <Toast.Body>{toastMessage}</Toast.Body>
+     </Toast>
+   </ToastContainer>
       </div>
 
     

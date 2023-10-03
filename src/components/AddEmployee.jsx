@@ -109,7 +109,6 @@ const AddEmployee = () => {
 
   const dateofbirthChangeHandler = (event) => {
     setdateofbirth(event.target.value);
-
   };
 
   const dateofjoiningChangeHandler = (event) => {
@@ -124,7 +123,8 @@ const AddEmployee = () => {
     event.preventDefault();
     const dob = new Date(dateofbirth);
     const doj = new Date(dateofjoining);
-    if(dob>doj){
+    const today = new Date(Date.now());
+    if(dob>doj||dob>today||doj>today){
       setShowToastFail(true);
       setToastMessage("Date of birth cant be later than date of joining");
       return;
