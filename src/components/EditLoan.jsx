@@ -4,10 +4,15 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 import { FaCashRegister , FaClock } from "react-icons/fa";
+import { ToastContainer, Toast } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
 import "../App.css";
 
 const EditLoan = () => {
   const navigate = useNavigate();
+  const [showToastSuccess, setShowToastSuccess] = useState(false)
+  const [showToastFail, setShowToastFail] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
   const baseURL = "http://localhost:7000/editloanbyid";
   const { loanId, loanType } = useParams();
   
@@ -37,11 +42,15 @@ const EditLoan = () => {
       .then((response) => {
        // alert(response.data.employeeName);
        console.log(response.data);
-        alert("Loan "+ loanType +" updatd!");
-        navigate("/fetchloancard");
+        setShowToastSuccess(true)
+          setToastMessage("Loan edited successfully")
+          setTimeout(() => {
+            navigate('/fetchloancard');
+          }, 3000);
         
       }).catch(error => {
-        alert("error==="+error);
+        setShowToastFail(true)
+          setToastMessage("Loan edit failed");
       });
 
   };
@@ -82,6 +91,21 @@ const EditLoan = () => {
         <button type='reset' className="loginButton transparent" onClick={() => cancelHandler()}>Cancel</button>
 
       </form>
+
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }}>
+
+         <Toast show={showToastFail} onClose={() => setShowToastFail(false)} delay={3000} autohide bg="danger" style={{color:"#fff", backgroundColor:"#CA0800", padding:"2em"}}>
+
+           <Toast.Body>{toastMessage}</Toast.Body>
+       </Toast>
+      </ToastContainer>
+      <ToastContainer style={{ top: "10px", right: "10px", position:"fixed" }} >
+
+        <Toast show={showToastSuccess} onClose={() => setShowToastSuccess(false)} delay={3000} autohide bg='success' style={{color:"#fff", backgroundColor:"#28A745", padding:"2em"}}>
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
+
 
     </div>
 
