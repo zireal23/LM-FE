@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { ToastContainer, Toast } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const DeleteItem = () => {
